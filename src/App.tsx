@@ -1,5 +1,4 @@
 import Navbar from './components/Navbar';
-import Banner from './components/Banner';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeBanner from "./components/HomeBanner";
 
