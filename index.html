@@ -5,9 +5,54 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- ECharts 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <style>
+      body {
+        font-family: 'Noto Sans SC', 'Poppins', Arial, sans-serif;
+        background: linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%);
+        min-height: 100vh;
+        color: #fff;
+      }
+      .glass {
+        background: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border-radius: 24px;
+        border: 1.5px solid rgba(255,255,255,0.3);
+      }
+      .apple-gradient {
+        background: linear-gradient(90deg, #ff5f6d 0%, #ffc371 50%, #47cf73 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .highlight-blue {
+        background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .highlight-purple {
+        background: linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    </style>
   </body>
 </html>

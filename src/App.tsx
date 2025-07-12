@@ -1,24 +1,58 @@
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeBanner from "./components/HomeBanner";
+import { useEffect } from 'react';
 
   // 其他页面内容可以先用简单占位
 function Life() {
+  useEffect(() => {
+    const chartDom = document.getElementById('lifeChart');
+    if (chartDom && (window as any).echarts) {
+      const myChart = (window as any).echarts.init(chartDom);
+      myChart.setOption({
+        backgroundColor: 'rgba(0,0,0,0)',
+        xAxis: { type: 'category', data: ['大一','大二','大三','大四'], axisLabel: { color: '#fff' } },
+        yAxis: { type: 'value', axisLabel: { color: '#fff' } },
+        series: [{
+          data: [3.5, 3.7, 3.9, 4.0],
+          type: 'line',
+          smooth: true,
+          itemStyle: {
+            color: new (window as any).echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#36d1c4'},{offset:1,color:'#5b86e5'}])
+          }
+        }]
+      });
+    }
+  }, []);
   return (
-    <div style={{ padding: 40 }}>
-      <h2>大学生活</h2>
-      {/* 这里插入图片 */}
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '16px',
-        marginTop: '16px'
-      }}>
-        <img src="/xiaoyunhui1.jpg" alt="荣誉学业证明1" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/jidian1.jpg" alt="荣誉学业证明2" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/zhiyuanshichang1.png" alt="荣誉学业证明3" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/bianchengzhixing.jpg" alt="荣誉学业证明4" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/junxun.jpg" alt="荣誉学业证明5" style={{ width: '200px', borderRadius: '8px' }} />
+    <div className="max-w-[1600px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* 超大卡片 */}
+      <div className="glass col-span-2 row-span-2 flex flex-col justify-center items-start p-10 min-h-[400px] relative overflow-hidden">
+        <div className="text-7xl font-extrabold mb-4 apple-gradient">大学生活</div>
+        <div className="text-4xl font-bold mb-2">我的成长</div>
+        <div className="text-2xl font-bold mb-6">My College Life</div>
+        <div className="text-lg font-light">用Bento Grid和玻璃质感，记录我的大学点滴</div>
+        <i className="fas fa-graduation-cap absolute right-8 bottom-8 text-8xl opacity-20"></i>
+      </div>
+      {/* 其他卡片 */}
+      <div className="glass flex flex-col justify-center items-center p-8">
+        <div className="text-6xl font-extrabold highlight-blue mb-2">3.9</div>
+        <div className="text-lg font-bold">GPA</div>
+        <div className="text-sm text-white/70">平均绩点</div>
+      </div>
+      {/* ECharts 图表 */}
+      <div className="glass flex flex-col justify-center items-center p-8">
+        <div id="lifeChart" className="w-full h-40"></div>
+        <div className="text-lg font-bold mt-4">成绩趋势</div>
+      </div>
+      {/* 兴趣/活动 */}
+      <div className="glass flex flex-col justify-center items-start p-8">
+        <div className="text-2xl font-bold mb-2">活动 <span className="text-base font-normal ml-2">Activities</span></div>
+        <ul className="list-disc pl-6 text-lg">
+          <li>学生会 / Student Union</li>
+          <li>志愿服务 / Volunteering</li>
+          <li>编程比赛 / Coding Contest</li>
+        </ul>
       </div>
     </div>
   );
