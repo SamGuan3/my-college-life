@@ -103,14 +103,27 @@ function Life() {
                 border: '2px solid rgba(255,255,255,0.35)',
                 padding: 20,
                 minHeight: 320,
+                height: 320,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 transition: 'box-shadow 0.3s',
               }}
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="rounded-2xl mb-2 w-full object-cover"
-                style={{ maxHeight: 260, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.12)' }}
+                className="rounded-2xl mb-2"
+                style={{
+                  maxHeight: 260,
+                  maxWidth: '100%',
+                  width: 'auto',
+                  height: '100%',
+                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto',
+                  boxShadow: '0 4px 24px 0 rgba(0,0,0,0.12)'
+                }}
               />
             </div>
           ))}
