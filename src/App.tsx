@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeBanner from "./components/HomeBanner";
 
 // 首页内容
 function Home() {
@@ -45,39 +46,12 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomeBanner />} />
         <Route path="/life" element={<Life />} />
         <Route path="/hobby" element={<Hobby />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <div id="home">
-        <h1>欢迎来到呱鲨的大学生活</h1>
-        <div style={{ marginTop: '32px', textAlign: 'center' }}>
-          <p>
-            抖音号：
-            <a
-              href="https://www.douyin.com/user/G3462343313"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#fe2c55', textDecoration: 'none', fontWeight: 'bold' }}
-            >
-              G3462343313
-            </a>
-          </p>
-          <p>
-            Bilibili账号：
-            <a
-              href="https://space.bilibili.com/1692189667"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#00a1d6', textDecoration: 'none', fontWeight: 'bold' }}
-            >
-             _呱呱呱鲨
-            </a>
-          </p>
-        </div>
-      </div>
     </Router>
   );
 }
