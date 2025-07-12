@@ -120,75 +120,87 @@ function Life() {
   }
   function About() {
     return (
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '32px',
-        padding: '40px',
-        background: '#fff',
-        borderRadius: '16px',
-        maxWidth: '1000px',
-        margin: '40px auto'
-      }}>
-        {/* 左侧：头像和昵称 */}
-        <div style={{ minWidth: 240, textAlign: 'center' }}>
-          <img
-            src="/cat.jpg"
-            alt="呱鲨"
-            style={{
-              width: 200,
-              height: 200,
-              borderRadius: '16px',
-              objectFit: 'cover',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
-            }}
-          />
-          <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16, color: '#111' }}>呱鲨</div>
-          <div style={{ color: '#555', marginTop: 8 }}>地点：广州</div>
-          <div style={{ color: '#007bff', marginTop: 8 }}>
-            
-          </div>
-        </div>
-
-        {/* 右侧：基本信息和技能 */}
-        <div style={{ flex: 1, minWidth: 320, display: 'flex', flexDirection: 'column', gap: 20 }}>
-          {/* 基本信息 */}
-          <div style={{
-            background: '#eaf3ff',
-            borderRadius: 12,
-            padding: 20,
-            marginBottom: 10,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-            color: '#222'
-          }}>
-            <div style={{ fontWeight: 'bold', marginBottom: 8, color: '#111' }}>🐸 基本信息：</div>
-            <div style={{ color: '#222' }}>呱鲨是我的别称。</div>
-            <div style={{ color: '#222' }}>INTJ，水瓶座♒。</div>
-            <div style={{ marginTop: 8 }}>
-              <span style={{ color: '#f90', fontWeight: 'bold' }}>学习能力较强</span> &nbsp;
-              <span style={{ color: '#f90', fontWeight: 'bold' }}>05在校大学生</span>
+      <div
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: 60, // 预留导航栏高度
+          boxSizing: 'border-box',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '32px',
+            padding: '40px',
+            background: '#fff',
+            borderRadius: '16px',
+            maxWidth: '1000px',
+            boxShadow: '0 8px 32px 0 rgba(31,38,135,0.08)',
+          }}
+        >
+          {/* 左侧：头像和昵称 */}
+          <div style={{ minWidth: 240, textAlign: 'center' }}>
+            <img
+              src="/cat.jpg"
+              alt="呱鲨"
+              style={{
+                width: 200,
+                height: 200,
+                borderRadius: '16px',
+                objectFit: 'cover',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
+              }}
+            />
+            <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16, color: '#111' }}>呱鲨</div>
+            <div style={{ color: '#555', marginTop: 8 }}>地点：广州</div>
+            <div style={{ color: '#007bff', marginTop: 8 }}>
+              
             </div>
-            <div style={{ marginTop: 8 }}>
+          </div>
+          {/* 右侧：基本信息和技能 */}
+          <div style={{ flex: 1, minWidth: 260 }}>
+            {/* 基本信息 */}
+            <div style={{
+              background: '#eaf3ff',
+              borderRadius: 12,
+              padding: 20,
+              marginBottom: 10,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              color: '#222'
+            }}>
+              <div style={{ fontWeight: 'bold', marginBottom: 8, color: '#111' }}>🐸 基本信息：</div>
+              <div style={{ color: '#222' }}>呱鲨是我的别称。</div>
+              <div style={{ color: '#222' }}>INTJ，水瓶座♒。</div>
+              <div style={{ marginTop: 8 }}>
+                <span style={{ color: '#f90', fontWeight: 'bold' }}>学习能力较强</span> &nbsp;
+                <span style={{ color: '#f90', fontWeight: 'bold' }}>05在校大学生</span>
+              </div>
+              <div style={{ marginTop: 8 }}>
+                <ul style={{ paddingLeft: 20, color: '#222' }}>
+                  <li>喜欢听歌，健身，热爱运动，喜欢探索</li>
+                  <li>对新事物充满好奇</li>
+                </ul>
+              </div>
+            </div>
+            {/* 能力/服务 */}
+            <div style={{
+              background: '#fff7e6',
+              borderRadius: 12,
+              padding: 20,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              color: '#222'
+            }}>
+              <div style={{ fontWeight: 'bold', marginBottom: 8, color: '#d2691e' }}>🧡 能力：</div>
               <ul style={{ paddingLeft: 20, color: '#222' }}>
-                <li>喜欢听歌，健身，热爱运动，喜欢探索</li>
-                <li>对新事物充满好奇</li>
+                <li>具备c语言/c++编程能力</li>
+                <li>会利用智能体进行一些前端开发</li>
+                <li>乐于沟通，擅长倾听需求，能清晰表达自己的想法</li>
               </ul>
             </div>
-          </div>
-          {/* 能力/服务 */}
-          <div style={{
-            background: '#fff7e6',
-            borderRadius: 12,
-            padding: 20,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-            color: '#222'
-          }}>
-            <div style={{ fontWeight: 'bold', marginBottom: 8, color: '#d2691e' }}>🧡 能力：</div>
-            <ul style={{ paddingLeft: 20, color: '#222' }}>
-              <li>具备c语言/c++编程能力</li>
-              <li>会利用智能体进行一些前端开发</li>
-              <li>乐于沟通，擅长倾听需求，能清晰表达自己的想法</li>
-            </ul>
           </div>
         </div>
       </div>
