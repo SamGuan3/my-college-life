@@ -61,7 +61,7 @@ function Life() {
         {/* 左侧：头像和昵称 */}
         <div style={{ minWidth: 240, textAlign: 'center' }}>
           <img
-            src="/你的头像图片名.jpg"
+            src="/cat.jpg"
             alt="呱鲨"
             style={{
               width: 200,
@@ -71,8 +71,8 @@ function Life() {
               boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
             }}
           />
-          <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16 }}>呱鲨</div>
-          <div style={{ color: '#888', marginTop: 8 }}>地点：广州</div>
+          <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16, color: '#111' }}>呱鲨</div>
+          <div style={{ color: '#555', marginTop: 8 }}>地点：广州</div>
           <div style={{ color: '#007bff', marginTop: 8 }}>
             
           </div>
@@ -86,20 +86,20 @@ function Life() {
             borderRadius: 12,
             padding: 20,
             marginBottom: 10,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+            color: '#222'
           }}>
-            <div style={{ fontWeight: 'bold', marginBottom: 8 }}>🐶 基本信息：</div>
-            <div>呱鲨是我的别称。</div>
-            <div>INTJ，水瓶座♒。</div>
+            <div style={{ fontWeight: 'bold', marginBottom: 8, color: '#111' }}>🐸 基本信息：</div>
+            <div style={{ color: '#222' }}>呱鲨是我的别称。</div>
+            <div style={{ color: '#222' }}>INTJ，水瓶座♒。</div>
             <div style={{ marginTop: 8 }}>
               <span style={{ color: '#f90', fontWeight: 'bold' }}>学习能力较强</span> &nbsp;
               <span style={{ color: '#f90', fontWeight: 'bold' }}>05在校大学生</span>
             </div>
             <div style={{ marginTop: 8 }}>
-              <ul style={{ paddingLeft: 20 }}>
-             
-                <li>喜欢听歌，健身，热爱运动</li>
-                <li></li>
+              <ul style={{ paddingLeft: 20, color: '#222' }}>
+                <li>喜欢听歌，健身，热爱运动，喜欢探索</li>
+                <li>对新事物充满好奇</li>
               </ul>
             </div>
           </div>
@@ -108,15 +108,14 @@ function Life() {
             background: '#fff7e6',
             borderRadius: 12,
             padding: 20,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+            color: '#222'
           }}>
-            <div style={{ fontWeight: 'bold', marginBottom: 8 }}>🧡 我能提供什么：</div>
-            <ul style={{ paddingLeft: 20 }}>
-              <li></li>
-              
-              <li></li>
-              <li></li>
-              <li></li>
+            <div style={{ fontWeight: 'bold', marginBottom: 8, color: '#d2691e' }}>🧡 能力：</div>
+            <ul style={{ paddingLeft: 20, color: '#222' }}>
+              <li>具备c语言/c++编程能力</li>
+              <li>会利用智能体进行一些前端开发</li>
+              <li>乐于沟通，擅长倾听需求，能清晰表达自己的想法</li>
             </ul>
           </div>
         </div>
