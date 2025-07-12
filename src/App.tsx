@@ -117,10 +117,10 @@ function Life() {
                 <div style={{ flex: 1, minWidth: 260 }}>
                   <span style={tagStyle}><i className="fa fa-music" style={{ marginRight: 6 }}></i>我的音乐世界</span>
                   <h2 style={h2Style}>听音乐，感受节奏与情感的共鸣</h2>
-                  <p style={pStyle}>音乐是我生活中不可或缺的一部分。无论是工作、学习还是放松，不同风格的音乐总能带给我不同的心情和灵感。从流行到摇滚，从古典到电子，每一种音乐类型都有其独特的魅力。</p>
+                  <p style={pStyle}>音乐是我生活中不可或缺的一部分。无论是工作、学习还是放松，不同风格的音乐总能带给我不同的心情和灵感。从流行到古典，从华语到电子，每一种音乐类型都有其独特的魅力。</p>
                   <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
-                    <li><i className="fa fa-headphones" style={{ color: '#3B82F6', marginRight: 8 }}></i>日常聆听：每天3-4小时</li>
-                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>最爱类型：摇滚、流行、古典</li>
+                    <li><i className="fa fa-headphones" style={{ color: '#3B82F6', marginRight: 8 }}></i>日常聆听：每天1小时</li>
+                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>最爱类型：流行、古典、华语</li>
                   </ul>
                 </div>
                 <div style={{ flex: 1, minWidth: 260, textAlign: 'center' }}>
@@ -174,7 +174,7 @@ function Life() {
                   <p style={pStyle}>我热爱编程和探索AI技术，喜欢用代码解决实际问题，创造有价值的应用。从Web开发到机器学习，每一次技术探索都是一次成长的机会。</p>
                   <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
                     <li><i className="fa fa-code" style={{ color: '#3B82F6', marginRight: 8 }}></i>主攻方向：Web开发、AI</li>
-                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>技能：Python、JS、ML</li>
+                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>技能：配置智能体，前端开发</li>
                   </ul>
                 </div>
               </div>
@@ -200,7 +200,7 @@ function Life() {
       <div
         style={{
           minHeight: '100vh',
-          background: 'linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)',
+          background: 'transparent',
           padding: '48px 0',
           display: 'flex',
           flexDirection: 'column',
