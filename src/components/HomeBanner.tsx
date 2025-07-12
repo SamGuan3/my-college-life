@@ -10,7 +10,7 @@ const HomeBanner = () => (
       position: "relative",
       width: "100vw",
       minHeight: "100vh",
-      background: "linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)",
+      background: "transparent",
       display: "flex",
       alignItems: "center",
       justifyContent: "center"
