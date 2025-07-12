@@ -197,45 +197,59 @@ function Life() {
       { src: "/meandlqr3.jpg", alt: "" },
     ];
     return (
-      <div style={{
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)',
-        padding: '48px 0'
-      }}>
+      <div
+        style={{
+          minHeight: '100vh',
+          background: 'linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)',
+          padding: '48px 0',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <h2 className="text-4xl font-bold text-center mb-10 text-white drop-shadow-lg">相册集</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-[1400px] mx-auto px-6">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(12, 1fr)',
+            gap: 24,
+            maxWidth: 1400,
+            width: '100%',
+            padding: '0 24px',
+          }}
+        >
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="rounded-3xl flex flex-col items-center"
               style={{
-                background: 'rgba(255,255,255,0.28)',
-                boxShadow: '0 12px 40px 0 rgba(31,38,135,0.18)',
-                backdropFilter: 'blur(24px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-                border: '2px solid rgba(255,255,255,0.35)',
-                padding: 20,
-                minHeight: 320,
-                height: 320,
+                gridColumn: `span 4`, // 3行，每行3张，12列Bento Grid
+                borderRadius: 24,
+                overflow: 'hidden',
+                background: 'rgba(255,255,255,0.18)',
+                boxShadow: '0 8px 32px 0 rgba(31,38,135,0.10)',
+                backdropFilter: 'blur(12px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+                border: '1.5px solid rgba(255,255,255,0.25)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                minHeight: 320,
+                height: 320,
                 transition: 'box-shadow 0.3s',
+                position: 'relative',
               }}
+              className="glass glass-hover"
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="rounded-2xl mb-2"
                 style={{
-                  maxHeight: 260,
-                  maxWidth: '100%',
-                  width: 'auto',
+                  width: '100%',
                   height: '100%',
-                  objectFit: 'contain',
-                  display: 'block',
-                  margin: '0 auto',
-                  boxShadow: '0 4px 24px 0 rgba(0,0,0,0.12)'
+                  objectFit: 'cover' as const,
+                  borderRadius: 20,
+                  boxShadow: '0 2px 16px 0 rgba(59,130,246,0.10)',
+                  transition: 'transform 0.3s',
                 }}
               />
             </div>
