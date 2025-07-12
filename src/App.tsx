@@ -3,10 +3,6 @@ import Banner from './components/Banner';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeBanner from "./components/HomeBanner";
 
-// 首页内容
-function Home() {
-    return <Banner />;
-  }
   // 其他页面内容可以先用简单占位
 function Life() {
   return (
