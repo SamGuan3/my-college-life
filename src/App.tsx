@@ -99,7 +99,6 @@ function Life() {
                 className="rounded-2xl mb-4 w-full object-cover"
                 style={{ maxHeight: 320 }}
               />
-              <div className="text-lg font-semibold text-white text-center" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>{img.alt}</div>
             </div>
           ))}
         </div>
