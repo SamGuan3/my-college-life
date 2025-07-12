@@ -47,6 +47,7 @@ const HomeBanner = () => (
           _呱呱呱鲨
         </a>
       </div>
+      <div style={{ color: 'limegreen', marginTop: 4 }}>微信：Guansss__</div>
     </div>
   </div>
 );
