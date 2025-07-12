@@ -72,24 +72,39 @@ function Life() {
     );
   }
   function Gallery() {
-    return <div style={{ padding: 40 }}><h2>相册集</h2><div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '16px',
-      marginTop: '16px'
-    }}>
-     
-      <img src="/meandlqr.jpg" alt="和同学合影1" style={{ width: '100%', borderRadius: '8px' }} />
-      <img src="/cwei.jpg" alt="照片2" style={{ width: '100%', borderRadius: '8px' }} />
-     <img src="/meandlqr.jpg" alt="照片3" style={{ width: '100%', borderRadius: '8px' }} />
-    <img src="/guohu1.jpg" alt="照片4" style={{ width: '100%', borderRadius: '8px' }} />
-          <img src="/shuai.jpg" alt="照片5" style={{ width: '100%', borderRadius: '8px' }} />
-          <img src="/guohu2.jpg" alt="照片6" style={{ width: '100%', borderRadius: '8px' }} />
-          <img src="/meandlqr2.jpg" alt="照片7" style={{ width: '100%', borderRadius: '8px' }} />
-          <img src="/meandlqrandxray.jpg" alt="照片8" style={{ width: '100%', borderRadius: '8px' }} />
-          <img src="/meandlqr3.jpg" alt="照片9" style={{ width: '100%', borderRadius: '8px' }} />
-      {/* 可以继续添加更多图片 */}
-    </div></div>;
+    const images = [
+      { src: "/meandlqr.jpg", alt: "和同学合影1" },
+      { src: "/cwei.jpg", alt: "照片2" },
+      { src: "/meandlqr.jpg", alt: "照片3" },
+      { src: "/guohu1.jpg", alt: "照片4" },
+      { src: "/shuai.jpg", alt: "照片5" },
+      { src: "/guohu2.jpg", alt: "照片6" },
+      { src: "/meandlqr2.jpg", alt: "照片7" },
+      { src: "/meandlqrandxray.jpg", alt: "照片8" },
+      { src: "/meandlqr3.jpg", alt: "照片9" },
+    ];
+    return (
+      <div className="max-w-[1400px] mx-auto px-6 py-12">
+        <h2 className="text-4xl font-bold text-center mb-10 text-white drop-shadow-lg">相册集</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              className="glass rounded-3xl shadow-xl p-4 flex flex-col items-center backdrop-blur-md"
+              style={{ background: "rgba(255,255,255,0.18)", border: "1.5px solid rgba(255,255,255,0.3)" }}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="rounded-2xl mb-4 w-full object-cover"
+                style={{ maxHeight: 320 }}
+              />
+              <div className="text-lg font-semibold text-white text-center" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>{img.alt}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
   function About() {
     return (
