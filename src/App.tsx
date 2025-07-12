@@ -9,8 +9,25 @@ function Home() {
   }
   // 其他页面内容可以先用简单占位
 function Life() {
-    return <div style={{ padding: 40 }}><h2>大学生活</h2></div>;
-  }
+  return (
+    <div style={{ padding: 40 }}>
+      <h2>大学生活</h2>
+      {/* 这里插入图片 */}
+      <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '16px',
+        marginTop: '16px'
+      }}>
+        <img src="/校运会1.jpg" alt="荣誉学业证明1" style={{ width: '200px', borderRadius: '8px' }} />
+        <img src="/jidian1.jpg" alt="荣誉学业证明2" style={{ width: '200px', borderRadius: '8px' }} />
+        <img src="/志愿时长1.jpg" alt="荣誉学业证明3" style={{ width: '200px', borderRadius: '8px' }} />
+        <img src="/bianchengzhixing.jpg" alt="荣誉学业证明4" style={{ width: '200px', borderRadius: '8px' }} />
+        <img src="/junxun.jpg" alt="荣誉学业证明5" style={{ width: '200px', borderRadius: '8px' }} />
+      </div>
+    </div>
+  );
+}
   function Hobby() {
     return <div style={{ padding: 40 }}><h2>兴趣爱好</h2></div>;
   }
