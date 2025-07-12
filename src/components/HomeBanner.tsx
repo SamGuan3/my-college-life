@@ -5,12 +5,17 @@ import Banner from './Banner';
  * @returns {JSX.Element}
  */
 const HomeBanner = () => (
-  <div style={{
-    position: "relative",
-    width: "100%",
-    minHeight: "100vh",
-    background: "linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)"
-  }}>
+  <div
+    style={{
+      position: "relative",
+      width: "100vw",
+      minHeight: "100vh",
+      background: "linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }}
+  >
     {/* 玻璃质感卡片 */}
     <div
       className="glass"
