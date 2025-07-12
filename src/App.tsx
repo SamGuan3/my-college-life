@@ -11,7 +11,10 @@ function Life() {
     return <div style={{ padding: 40 }}><h2>大学生活</h2></div>;
   }
   function Hobby() {
-    return <div style={{ padding: 40 }}><h2>兴趣爱好</h2><div style={{
+    return <div style={{ padding: 40 }}><h2>兴趣爱好</h2></div>;
+  }
+  function Gallery() {
+    return <div style={{ padding: 40 }}><h2>相册集</h2><div style={{
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
       gap: '16px',
@@ -29,9 +32,6 @@ function Life() {
           <img src="/meandlqr3.jpg" alt="照片9" style={{ width: '100%', borderRadius: '8px' }} />
       {/* 可以继续添加更多图片 */}
     </div></div>;
-  }
-  function Gallery() {
-    return <div style={{ padding: 40 }}><h2>相册集</h2><p>这里是相册集内容</p></div>;
   }
   function About() {
     return <div style={{ padding: 40 }}><h2>关于我</h2><p>这里是关于我内容</p></div>;
