@@ -1,4 +1,4 @@
-import React from "react";
+
 
 /**
  * 首页欢迎横幅组件
