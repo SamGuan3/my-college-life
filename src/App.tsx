@@ -47,7 +47,81 @@ function Life() {
     </div></div>;
   }
   function About() {
-    return <div style={{ padding: 40 }}><h2>关于我</h2><p>这里是关于我内容</p></div>;
+    return (
+      <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '32px',
+        padding: '40px',
+        background: '#fff',
+        borderRadius: '16px',
+        maxWidth: '1000px',
+        margin: '40px auto'
+      }}>
+        {/* 左侧：头像和昵称 */}
+        <div style={{ minWidth: 240, textAlign: 'center' }}>
+          <img
+            src="/你的头像图片名.jpg"
+            alt="呱鲨"
+            style={{
+              width: 200,
+              height: 200,
+              borderRadius: '16px',
+              objectFit: 'cover',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
+            }}
+          />
+          <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16 }}>呱鲨</div>
+          <div style={{ color: '#888', marginTop: 8 }}>地点：广州</div>
+          <div style={{ color: '#007bff', marginTop: 8 }}>
+            
+          </div>
+        </div>
+
+        {/* 右侧：基本信息和技能 */}
+        <div style={{ flex: 1, minWidth: 320, display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {/* 基本信息 */}
+          <div style={{
+            background: '#eaf3ff',
+            borderRadius: 12,
+            padding: 20,
+            marginBottom: 10,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: 8 }}>🐶 基本信息：</div>
+            <div>呱鲨是我的别称。</div>
+            <div>INTJ，水瓶座♒。</div>
+            <div style={{ marginTop: 8 }}>
+              <span style={{ color: '#f90', fontWeight: 'bold' }}>学习能力较强</span> &nbsp;
+              <span style={{ color: '#f90', fontWeight: 'bold' }}>05在校大学生</span>
+            </div>
+            <div style={{ marginTop: 8 }}>
+              <ul style={{ paddingLeft: 20 }}>
+             
+                <li>喜欢听歌，健身，热爱运动</li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+          {/* 能力/服务 */}
+          <div style={{
+            background: '#fff7e6',
+            borderRadius: 12,
+            padding: 20,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: 8 }}>🧡 我能提供什么：</div>
+            <ul style={{ paddingLeft: 20 }}>
+              <li></li>
+              
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
   }
 /**
  * 应用主组件
