@@ -11,10 +11,10 @@ function Banner() {
       <img
         className="banner__avatar"
         src="cat.jpg"
-        alt="myphoto.jpg"
+        alt="shuai.jpg"
       />
       <div className="banner__name">呱鲨</div>
-      <div className="banner__slogan">mylife</div>
+      <div className="banner__slogan">05在校大学生</div>
       <button
         className="banner__btn"
         onClick={() => {
