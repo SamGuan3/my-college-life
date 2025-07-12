@@ -73,15 +73,15 @@ function Life() {
   }
   function Gallery() {
     const images = [
-      { src: "/meandlqr.jpg", alt: "和同学合影1" },
-      { src: "/cwei.jpg", alt: "照片2" },
-      { src: "/meandlqr.jpg", alt: "照片3" },
-      { src: "/guohu1.jpg", alt: "照片4" },
-      { src: "/shuai.jpg", alt: "照片5" },
-      { src: "/guohu2.jpg", alt: "照片6" },
-      { src: "/meandlqr2.jpg", alt: "照片7" },
-      { src: "/meandlqrandxray.jpg", alt: "照片8" },
-      { src: "/meandlqr3.jpg", alt: "照片9" },
+      { src: "/meandlqr.jpg", alt: "" },
+      { src: "/cwei.jpg", alt: "" },
+      { src: "/meandlqr.jpg", alt: "" },
+      { src: "/guohu1.jpg", alt: "" },
+      { src: "/shuai.jpg", alt: "" },
+      { src: "/guohu2.jpg", alt: "" },
+      { src: "/meandlqr2.jpg", alt: "" },
+      { src: "/meandlqrandxray.jpg", alt: "" },
+      { src: "/meandlqr3.jpg", alt: "" },
     ];
     return (
       <div className="max-w-[1400px] mx-auto px-6 py-12">
