@@ -9,7 +9,16 @@ import { useNavigate } from 'react-router-dom';
 function Banner() {
   const navigate = useNavigate();
   return (
-    <div className="banner">
+    <div
+      className="banner"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100%", // 让内容在父容器内垂直居中
+      }}
+    >
       <img
         className="banner__avatar"
         src="cat.jpg"
@@ -20,7 +29,7 @@ function Banner() {
       <button
         className="banner__btn"
         onClick={() => {
-          navigate('/gallery');
+          // 跳转逻辑
         }}
       >
         探索我的生活
