@@ -84,20 +84,33 @@ function Life() {
       { src: "/meandlqr3.jpg", alt: "" },
     ];
     return (
-      <div className="max-w-[1400px] mx-auto px-6 py-12">
+      <div style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)',
+        padding: '48px 0'
+      }}>
         <h2 className="text-4xl font-bold text-center mb-10 text-white drop-shadow-lg">相册集</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-[1400px] mx-auto px-6">
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="glass rounded-3xl shadow-xl p-4 flex flex-col items-center backdrop-blur-md"
-              style={{ background: "rgba(255,255,255,0.18)", border: "1.5px solid rgba(255,255,255,0.3)" }}
+              className="rounded-3xl flex flex-col items-center"
+              style={{
+                background: 'rgba(255,255,255,0.28)',
+                boxShadow: '0 12px 40px 0 rgba(31,38,135,0.18)',
+                backdropFilter: 'blur(24px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+                border: '2px solid rgba(255,255,255,0.35)',
+                padding: 20,
+                minHeight: 320,
+                transition: 'box-shadow 0.3s',
+              }}
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="rounded-2xl mb-4 w-full object-cover"
-                style={{ maxHeight: 320 }}
+                className="rounded-2xl mb-2 w-full object-cover"
+                style={{ maxHeight: 260, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.12)' }}
               />
             </div>
           ))}
