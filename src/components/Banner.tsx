@@ -1,11 +1,13 @@
 
 import './Banner.css';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * 首屏 Banner 组件
  * @returns {JSX.Element}
  */
 function Banner() {
+  const navigate = useNavigate();
   return (
     <div className="banner">
       <img
@@ -18,7 +20,7 @@ function Banner() {
       <button
         className="banner__btn"
         onClick={() => {
-          document.getElementById('life')?.scrollIntoView({ behavior: 'smooth' });
+          navigate('/gallery');
         }}
       >
         探索我的生活

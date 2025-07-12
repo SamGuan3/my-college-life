@@ -24,7 +24,18 @@ function Life() {
   );
 }
   function Hobby() {
-    return <div style={{ padding: 40 }}><h2>兴趣爱好</h2></div>;
+    return (
+      <div style={{ padding: 40 }}>
+        <h2>兴趣爱好</h2>
+        <ul style={{ fontSize: 18, color: '#222', marginTop: 20 }}>
+          <li>听音乐，看电影</li>
+          <li>健身、跑步、足球</li>
+          <li>编程、AI 技术探索</li>
+         
+          {/* 你可以继续添加更多兴趣 */}
+        </ul>
+      </div>
+    );
   }
   function Gallery() {
     return <div style={{ padding: 40 }}><h2>相册集</h2><div style={{

@@ -9,10 +9,10 @@ import './Navbar.css';
 
 const NAV_ITEMS = [
   { label: '首页', to: '/' },
+  { label: '关于我', to: '/about' },
+  { label: '相册集', to: '/gallery' },
   { label: '大学生活', to: '/life' },
   { label: '兴趣爱好', to: '/hobby' },
-  { label: '相册集', to: '/gallery' },
-  { label: '关于我', to: '/about' },
 ];
 
 /**
