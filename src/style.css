@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('/bolizhigan.jpg');
+  background-image: url('/bolizhigan.jpg') !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -19,7 +19,7 @@ body {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: transparent !important;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -48,6 +48,7 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: transparent !important;
 }
 
 .logo {
