@@ -16,7 +16,7 @@ function Life() {
       }}>
         <img src="/xiaoyunhui1.jpg" alt="荣誉学业证明1" style={{ width: '200px', borderRadius: '8px' }} />
         <img src="/jidian1.jpg" alt="荣誉学业证明2" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/zhiyuanshichang1.jpg" alt="荣誉学业证明3" style={{ width: '200px', borderRadius: '8px' }} />
+        <img src="/zhiyuanshichang1.png" alt="荣誉学业证明3" style={{ width: '200px', borderRadius: '8px' }} />
         <img src="/bianchengzhixing.jpg" alt="荣誉学业证明4" style={{ width: '200px', borderRadius: '8px' }} />
         <img src="/junxun.jpg" alt="荣誉学业证明5" style={{ width: '200px', borderRadius: '8px' }} />
       </div>
