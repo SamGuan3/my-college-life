@@ -276,10 +276,13 @@ function Life() {
             flexWrap: 'wrap',
             gap: '32px',
             padding: '40px',
-            background: '#fff',
-            borderRadius: '16px',
+            background: 'rgba(255,255,255,0.18)',
+            borderRadius: '24px',
             maxWidth: '1000px',
-            boxShadow: '0 8px 32px 0 rgba(31,38,135,0.08)',
+            boxShadow: '0 8px 32px 0 rgba(31,38,135,0.10)',
+            backdropFilter: 'blur(12px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+            border: '1.5px solid rgba(255,255,255,0.25)',
           }}
         >
           {/* 左侧：头像和昵称 */}
