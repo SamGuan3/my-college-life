@@ -78,7 +78,7 @@ function Life() {
           justifyContent: 'center',
           paddingTop: 60,
           boxSizing: 'border-box',
-          background: 'linear-gradient(135deg, #e0e7ef 0%, #f5f7fa 100%)',
+          background: 'transparent',
         }}
       >
         <div
@@ -91,12 +91,15 @@ function Life() {
           {/* 英雄区 */}
           <div
             style={{
-              background: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
+              background: 'rgba(255,255,255,0.18)',
               borderRadius: 32,
-              color: '#fff',
+              color: '#222',
               padding: '48px 32px',
               marginBottom: 40,
               boxShadow: '0 8px 32px 0 rgba(31,38,135,0.10)',
+              backdropFilter: 'blur(12px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+              border: '1.5px solid rgba(255,255,255,0.25)',
               textAlign: 'center',
             }}
           >
@@ -112,15 +115,15 @@ function Life() {
           {/* 内容区 */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 40 }}>
             {/* 音乐 */}
-            <section id="music" style={sectionStyle}>
+            <section id="music" style={glassSectionStyle}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
                 <div style={{ flex: 1, minWidth: 260 }}>
                   <span style={tagStyle}><i className="fa fa-music" style={{ marginRight: 6 }}></i>我的音乐世界</span>
                   <h2 style={h2Style}>听音乐，感受节奏与情感的共鸣</h2>
-                  <p style={pStyle}>音乐是我生活中不可或缺的一部分。无论是工作、学习还是放松，不同风格的音乐总能带给我不同的心情和灵感。从流行到古典，从华语到电子，每一种音乐类型都有其独特的魅力。</p>
+                  <p style={pStyle}>音乐是我生活中不可或缺的一部分。无论是工作、学习还是放松，不同风格的音乐总能带给我不同的心情和灵感。从流行到摇滚，从古典到电子，每一种音乐类型都有其独特的魅力。</p>
                   <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
-                    <li><i className="fa fa-headphones" style={{ color: '#3B82F6', marginRight: 8 }}></i>日常聆听：每天1小时</li>
-                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>最爱类型：流行、古典、华语</li>
+                    <li><i className="fa fa-headphones" style={{ color: '#3B82F6', marginRight: 8 }}></i>日常聆听：每天3-4小时</li>
+                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>最爱类型：摇滚、流行、古典</li>
                   </ul>
                 </div>
                 <div style={{ flex: 1, minWidth: 260, textAlign: 'center' }}>
@@ -129,7 +132,7 @@ function Life() {
               </div>
             </section>
             {/* 电影 */}
-            <section id="movies" style={sectionStyle}>
+            <section id="movies" style={glassSectionStyle}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
                 <div style={{ flex: 1, minWidth: 260, textAlign: 'center' }}>
                   <img src="https://picsum.photos/seed/movie1/400/300" alt="电影" style={imgCardStyle} />
@@ -146,7 +149,7 @@ function Life() {
               </div>
             </section>
             {/* 健身 */}
-            <section id="fitness" style={sectionStyle}>
+            <section id="fitness" style={glassSectionStyle}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
                 <div style={{ flex: 1, minWidth: 260 }}>
                   <span style={{ ...tagStyle, background: '#D1FAE5', color: '#10B981' }}><i className="fa fa-heartbeat" style={{ marginRight: 6 }}></i>健康生活</span>
@@ -163,7 +166,7 @@ function Life() {
               </div>
             </section>
             {/* 编程 */}
-            <section id="programming" style={sectionStyle}>
+            <section id="programming" style={glassSectionStyle}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
                 <div style={{ flex: 1, minWidth: 260, textAlign: 'center' }}>
                   <img src="https://picsum.photos/seed/code/400/300" alt="编程" style={imgCardStyle} />
@@ -174,7 +177,7 @@ function Life() {
                   <p style={pStyle}>我热爱编程和探索AI技术，喜欢用代码解决实际问题，创造有价值的应用。从Web开发到机器学习，每一次技术探索都是一次成长的机会。</p>
                   <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
                     <li><i className="fa fa-code" style={{ color: '#3B82F6', marginRight: 8 }}></i>主攻方向：Web开发、AI</li>
-                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>技能：配置智能体，前端开发</li>
+                    <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>技能：Python、JS、ML</li>
                   </ul>
                 </div>
               </div>
@@ -385,10 +388,13 @@ const btnStyle = {
   alignItems: 'center',
   transition: 'all 0.2s',
 };
-const sectionStyle = {
-  background: 'rgba(255,255,255,0.85)',
+const glassSectionStyle = {
+  background: 'rgba(255,255,255,0.18)',
   borderRadius: 24,
-  boxShadow: '0 4px 24px 0 rgba(31,38,135,0.08)',
+  boxShadow: '0 4px 24px 0 rgba(31,38,135,0.10)',
+  backdropFilter: 'blur(12px) saturate(180%)',
+  WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+  border: '1.5px solid rgba(255,255,255,0.25)',
   padding: '32px 24px',
 };
 const tagStyle = {
