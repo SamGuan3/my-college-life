@@ -79,6 +79,7 @@ function Life() {
           paddingTop: 60,
           boxSizing: 'border-box',
           background: 'transparent',
+          color: '#fff', // 全局字体白色
         }}
       >
         <div
@@ -93,7 +94,7 @@ function Life() {
             style={{
               background: 'rgba(255,255,255,0.18)',
               borderRadius: 32,
-              color: '#222',
+              color: '#fff', // 英雄区字体白色
               padding: '48px 32px',
               marginBottom: 40,
               boxShadow: '0 8px 32px 0 rgba(31,38,135,0.10)',
@@ -103,8 +104,8 @@ function Life() {
               textAlign: 'center',
             }}
           >
-            <h1 style={{ fontSize: '2.8rem', fontWeight: 700, marginBottom: 16, textShadow: '0 2px 8px rgba(0,0,0,0.10)' }}>探索我的兴趣世界</h1>
-            <p style={{ fontSize: 22, opacity: 0.92, marginBottom: 24 }}>音乐、电影、健身和编程，每一种爱好都是生活的色彩</p>
+            <h1 style={{ fontSize: '2.8rem', fontWeight: 700, marginBottom: 16, textShadow: '0 2px 8px rgba(0,0,0,0.10)', color: '#fff' }}>探索我的兴趣世界</h1>
+            <p style={{ fontSize: 22, opacity: 0.92, marginBottom: 24, color: '#fff' }}>音乐、电影、健身和编程，每一种爱好都是生活的色彩</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16 }}>
               <a href="#music" style={btnStyle}><i className="fa fa-music" style={{ marginRight: 8 }}></i>音乐</a>
               <a href="#movies" style={btnStyle}><i className="fa fa-film" style={{ marginRight: 8 }}></i>电影</a>
@@ -116,12 +117,12 @@ function Life() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 40 }}>
             {/* 音乐 */}
             <section id="music" style={glassSectionStyle}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', color: '#fff' }}>
                 <div style={{ flex: 1, minWidth: 260 }}>
-                  <span style={tagStyle}><i className="fa fa-music" style={{ marginRight: 6 }}></i>我的音乐世界</span>
-                  <h2 style={h2Style}>听音乐，感受节奏与情感的共鸣</h2>
-                  <p style={pStyle}>音乐是我生活中不可或缺的一部分。无论是工作、学习还是放松，不同风格的音乐总能带给我不同的心情和灵感。从流行到摇滚，从古典到电子，每一种音乐类型都有其独特的魅力。</p>
-                  <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
+                  <span style={{ ...tagStyle, color: '#fff' }}><i className="fa fa-music" style={{ marginRight: 6 }}></i>我的音乐世界</span>
+                  <h2 style={{ ...h2Style, color: '#fff' }}>听音乐，感受节奏与情感的共鸣</h2>
+                  <p style={{ ...pStyle, color: '#fff' }}>音乐是我生活中不可或缺的一部分。无论是工作、学习还是放松，不同风格的音乐总能带给我不同的心情和灵感。从流行到摇滚，从古典到电子，每一种音乐类型都有其独特的魅力。</p>
+                  <ul style={{ fontSize: 16, color: '#e0e7ef', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
                     <li><i className="fa fa-headphones" style={{ color: '#3B82F6', marginRight: 8 }}></i>日常聆听：每天3-4小时</li>
                     <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>最爱类型：摇滚、流行、古典</li>
                   </ul>
@@ -133,15 +134,15 @@ function Life() {
             </section>
             {/* 电影 */}
             <section id="movies" style={glassSectionStyle}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', color: '#fff' }}>
                 <div style={{ flex: 1, minWidth: 260, textAlign: 'center' }}>
                   <img src="https://picsum.photos/seed/movie1/400/300" alt="电影" style={imgCardStyle} />
                 </div>
                 <div style={{ flex: 1, minWidth: 260 }}>
-                  <span style={{ ...tagStyle, background: '#FEE2E2', color: '#EF4444' }}><i className="fa fa-film" style={{ marginRight: 6 }}></i>电影爱好者</span>
-                  <h2 style={h2Style}>电影是一扇窗，带我看遍世间万象</h2>
-                  <p style={pStyle}>电影是视觉与听觉的盛宴，是故事与情感的交融。我喜欢在闲暇时光沉浸在电影的世界里，体验不同的人生和冒险。</p>
-                  <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
+                  <span style={{ ...tagStyle, background: '#FEE2E2', color: '#fff' }}><i className="fa fa-film" style={{ marginRight: 6 }}></i>电影爱好者</span>
+                  <h2 style={{ ...h2Style, color: '#fff' }}>电影是一扇窗，带我看遍世间万象</h2>
+                  <p style={{ ...pStyle, color: '#fff' }}>电影是视觉与听觉的盛宴，是故事与情感的交融。我喜欢在闲暇时光沉浸在电影的世界里，体验不同的人生和冒险。</p>
+                  <ul style={{ fontSize: 16, color: '#e0e7ef', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
                     <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>最爱影片：《星际穿越》《千与千寻》《盗梦空间》</li>
                     <li><i className="fa fa-film" style={{ color: '#3B82F6', marginRight: 8 }}></i>类型偏好：科幻、动画、悬疑</li>
                   </ul>
@@ -150,12 +151,12 @@ function Life() {
             </section>
             {/* 健身 */}
             <section id="fitness" style={glassSectionStyle}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', color: '#fff' }}>
                 <div style={{ flex: 1, minWidth: 260 }}>
-                  <span style={{ ...tagStyle, background: '#D1FAE5', color: '#10B981' }}><i className="fa fa-heartbeat" style={{ marginRight: 6 }}></i>健康生活</span>
-                  <h2 style={h2Style}>健身是一种生活态度，坚持是最好的训练</h2>
-                  <p style={pStyle}>健身已经成为我生活中不可或缺的一部分。通过跑步、力量训练和团队运动，我不仅保持了健康的体魄，更培养了坚持和自律的品质。</p>
-                  <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
+                  <span style={{ ...tagStyle, background: '#D1FAE5', color: '#fff' }}><i className="fa fa-heartbeat" style={{ marginRight: 6 }}></i>健康生活</span>
+                  <h2 style={{ ...h2Style, color: '#fff' }}>健身是一种生活态度，坚持是最好的训练</h2>
+                  <p style={{ ...pStyle, color: '#fff' }}>健身已经成为我生活中不可或缺的一部分。通过跑步、力量训练和团队运动，我不仅保持了健康的体魄，更培养了坚持和自律的品质。</p>
+                  <ul style={{ fontSize: 16, color: '#e0e7ef', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
                     <li><i className="fa fa-futbol-o" style={{ color: '#8B5CF6', marginRight: 8 }}></i>足球：每周末和朋友踢球</li>
                     <li><i className="fa fa-balance-scale" style={{ color: '#F59E42', marginRight: 8 }}></i>营养管理：合理搭配饮食</li>
                   </ul>
@@ -167,15 +168,15 @@ function Life() {
             </section>
             {/* 编程 */}
             <section id="programming" style={glassSectionStyle}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', color: '#fff' }}>
                 <div style={{ flex: 1, minWidth: 260, textAlign: 'center' }}>
                   <img src="https://picsum.photos/seed/code/400/300" alt="编程" style={imgCardStyle} />
                 </div>
                 <div style={{ flex: 1, minWidth: 260 }}>
-                  <span style={{ ...tagStyle, background: '#EDE9FE', color: '#8B5CF6' }}><i className="fa fa-code" style={{ marginRight: 6 }}></i>技术探索者</span>
-                  <h2 style={h2Style}>编程是创造的艺术，AI是未来的钥匙</h2>
-                  <p style={pStyle}>我热爱编程和探索AI技术，喜欢用代码解决实际问题，创造有价值的应用。从Web开发到机器学习，每一次技术探索都是一次成长的机会。</p>
-                  <ul style={{ fontSize: 16, color: '#555', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
+                  <span style={{ ...tagStyle, background: '#EDE9FE', color: '#fff' }}><i className="fa fa-code" style={{ marginRight: 6 }}></i>技术探索者</span>
+                  <h2 style={{ ...h2Style, color: '#fff' }}>编程是创造的艺术，AI是未来的钥匙</h2>
+                  <p style={{ ...pStyle, color: '#fff' }}>我热爱编程和探索AI技术，喜欢用代码解决实际问题，创造有价值的应用。从Web开发到机器学习，每一次技术探索都是一次成长的机会。</p>
+                  <ul style={{ fontSize: 16, color: '#e0e7ef', margin: '16px 0 0 0', padding: 0, listStyle: 'none' }}>
                     <li><i className="fa fa-code" style={{ color: '#3B82F6', marginRight: 8 }}></i>主攻方向：Web开发、AI</li>
                     <li><i className="fa fa-star" style={{ color: '#F59E42', marginRight: 8 }}></i>技能：Python、JS、ML</li>
                   </ul>
