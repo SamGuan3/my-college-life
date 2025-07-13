@@ -298,8 +298,8 @@ function Life() {
                 boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
               }}
             />
-            <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16, color: '#111' }}>呱鲨</div>
-            <div style={{ color: '#555', marginTop: 8 }}>地点：广州</div>
+            <div style={{ fontWeight: 'bold', fontSize: 22, marginTop: 16, color: '#34C759' }}>呱鲨</div>
+            <div style={{ color: '#34C759', marginTop: 8 }}>地点：广州</div>
             <div style={{ color: '#007bff', marginTop: 8 }}>
               
             </div>
