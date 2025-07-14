@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import GridLayout from 'react-grid-layout';
-import type { Layout } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 // @ts-ignore
@@ -124,9 +123,9 @@ const Dashboard = () => {
 
   /**
    * 处理布局变化
-   * @param {Layout[]} layout 
+   * @param {any[]} layout 
    */
-  const onLayoutChange = (layout: Layout[]) => {
+  const onLayoutChange = (layout: any[]) => {
     setWidgets(widgets.map((w, idx) => ({ ...w, ...layout[idx] })));
   };
 
