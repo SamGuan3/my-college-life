@@ -1,5 +1,4 @@
 import Banner from './Banner';
-import Dashboard from './Dashboard';
 
 /**
  * 首页欢迎横幅组件
