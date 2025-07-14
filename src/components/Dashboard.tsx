@@ -1,33 +1,133 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import GridLayout from 'react-grid-layout';
+import type { Layout } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
+// @ts-ignore
+import Calendar from 'react-calendar'; // 需安装 react-calendar
+// @ts-ignore
+import ReactECharts from 'echarts-for-react'; // 需安装 echarts-for-react、echarts
 
 /**
- * 仪表盘小部件组件
- * @returns {JSX.Element}
+ * 小部件类型定义
  */
-const initialWidgets = [
-  { i: 'gpa', x: 0, y: 0, w: 2, h: 2, content: <div>GPA: <span style={{fontWeight:700, fontSize:32, background: 'linear-gradient(90deg,#3B82F6,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>3.9</span></div> },
-  { i: 'todo', x: 2, y: 0, w: 2, h: 2, content: <div>任务：<ul><li>完成作业</li><li>参加活动</li></ul></div> },
+interface Widget {
+  i: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  type: 'gpa' | 'todo' | 'calendar' | 'echarts' | string;
+  data: any;
+}
+
+/**
+ * 获取本地存储的小部件布局
+ * @returns {Widget[]}
+ */
+function getStoredWidgets(): Widget[] | null {
+  try {
+    const data = localStorage.getItem('dashboard_widgets');
+    if (data) return JSON.parse(data);
+  } catch {}
+  return null;
+}
+
+/**
+ * 保存小部件布局到本地存储
+ * @param {Widget[]} widgets 
+ */
+function saveWidgets(widgets: Widget[]) {
+  localStorage.setItem('dashboard_widgets', JSON.stringify(widgets));
+}
+
+const initialWidgets: Widget[] = [
+  { i: 'gpa', x: 0, y: 0, w: 2, h: 2, type: 'gpa', data: { value: 3.9 } },
+  { i: 'todo', x: 2, y: 0, w: 2, h: 2, type: 'todo', data: { tasks: ['完成作业', '参加活动'] } },
+];
+
+/**
+ * 渲染小部件内容
+ * @param {Widget} w 
+ */
+function renderWidgetContent(w: Widget) {
+  switch (w.type) {
+    case 'gpa':
+      return <div>GPA: <span style={{fontWeight:700, fontSize:32, background: 'linear-gradient(90deg,#3B82F6,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{w.data.value}</span></div>;
+    case 'todo':
+      return <div>任务：<ul>{w.data.tasks.map((t: string, i: number) => <li key={i}>{t}</li>)}</ul></div>;
+    case 'calendar':
+      return <Calendar />;
+    case 'echarts':
+      return <ReactECharts style={{height:'100%',width:'100%'}} option={w.data.option} />;
+    default:
+      return <div>新小部件</div>;
+  }
+}
+
+const widgetTypeOptions = [
+  { value: 'gpa', label: 'GPA' },
+  { value: 'todo', label: '任务清单' },
+  { value: 'calendar', label: '日历' },
+  { value: 'echarts', label: '图表' },
 ];
 
 const Dashboard = () => {
-  const [widgets, setWidgets] = useState(initialWidgets);
+  const [widgets, setWidgets] = useState<Widget[]>(() => getStoredWidgets() || initialWidgets);
+  const [editing, setEditing] = useState<Widget | null>(null);
 
-  // 添加新小部件
+  // 持久化
+  useEffect(() => { saveWidgets(widgets); }, [widgets]);
+
+  /**
+   * 添加新小部件
+   */
   const addWidget = () => {
     setWidgets([
       ...widgets,
       {
-        i: `widget${widgets.length}`,
+        i: `widget${Date.now()}`,
         x: (widgets.length * 2) % 6,
         y: Infinity,
         w: 2,
         h: 2,
-        content: <div style={{background: 'linear-gradient(90deg,#10B981,#F59E42)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 700}}>新小部件 {widgets.length + 1}</div>
-      }
+        type: 'gpa',
+        data: { value: 4.0 },
+      },
     ]);
+  };
+
+  /**
+   * 删除小部件
+   * @param {string} i 
+   */
+  const removeWidget = (i: string) => {
+    setWidgets(widgets.filter((w) => w.i !== i));
+  };
+
+  /**
+   * 编辑小部件
+   * @param {Widget} w 
+   */
+  const startEdit = (w: Widget) => {
+    setEditing({ ...w });
+  };
+
+  /**
+   * 保存编辑
+   */
+  const saveEdit = () => {
+    if (!editing) return;
+    setWidgets(widgets.map((w) => w.i === editing.i ? { ...w, type: editing.type, data: editing.data } : w));
+    setEditing(null);
+  };
+
+  /**
+   * 处理布局变化
+   * @param {Layout[]} layout 
+   */
+  const onLayoutChange = (layout: Layout[]) => {
+    setWidgets(widgets.map((w, idx) => ({ ...w, ...layout[idx] })));
   };
 
   return (
@@ -41,13 +141,11 @@ const Dashboard = () => {
         width={900}
         isResizable
         isDraggable
-        onLayoutChange={(layout: any[]) => {
-          setWidgets(widgets.map((w, idx) => ({ ...w, ...layout[idx] })));
-        }}
+        onLayoutChange={onLayoutChange}
         useCSSTransforms={true}
         style={{transition: 'all 0.4s cubic-bezier(.175,.885,.32,1.275)'}}
       >
-        {widgets.map(w => (
+        {widgets.map((w) => (
           <div key={w.i} className="dashboard-widget-animated" style={{
             background: 'rgba(255,255,255,0.18)',
             borderRadius: 18,
@@ -63,11 +161,64 @@ const Dashboard = () => {
             height: '100%',
             transition: 'box-shadow 0.3s, transform 0.3s',
             cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden',
           }}>
-            {w.content}
+            {/* 删除按钮 */}
+            <button onClick={e => {e.stopPropagation(); removeWidget(w.i);}} style={{position:'absolute',top:8,right:8,background:'#EF4444',color:'#fff',border:'none',borderRadius:6,padding:'2px 8px',fontSize:14,cursor:'pointer',zIndex:2}}>删除</button>
+            {/* 编辑按钮 */}
+            <button onClick={e => {e.stopPropagation(); startEdit(w);}} style={{position:'absolute',top:8,left:8,background:'#F59E42',color:'#fff',border:'none',borderRadius:6,padding:'2px 8px',fontSize:14,cursor:'pointer',zIndex:2}}>编辑</button>
+            {renderWidgetContent(w)}
           </div>
         ))}
       </GridLayout>
+      {/* 编辑弹窗 */}
+      {editing && (
+        <div style={{position:'fixed',top:0,left:0,right:0,bottom:0,background:'rgba(0,0,0,0.25)',zIndex:10,display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <div style={{background:'rgba(255,255,255,0.95)',borderRadius:16,padding:32,minWidth:320,boxShadow:'0 8px 32px #3B82F6AA'}}>
+            <h3 style={{marginBottom:16}}>编辑小部件</h3>
+            <div style={{marginBottom:12}}>
+              <label>类型：</label>
+              <select value={editing.type} onChange={e => setEditing({...editing!, type: e.target.value, data: {}})}>
+                {widgetTypeOptions.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
+              </select>
+            </div>
+            {/* 不同类型的内容编辑 */}
+            {editing.type === 'gpa' && (
+              <div style={{marginBottom:12}}>
+                <label>GPA：</label>
+                <input type="number" step="0.01" value={editing.data.value || ''} onChange={e => setEditing({...editing!, data: { value: parseFloat(e.target.value) }})} />
+              </div>
+            )}
+            {editing.type === 'todo' && (
+              <div style={{marginBottom:12}}>
+                <label>任务（逗号分隔）：</label>
+                <input type="text" value={editing.data.tasks ? editing.data.tasks.join(',') : ''} onChange={e => setEditing({...editing!, data: { tasks: e.target.value.split(',').map((s: string) => s.trim()).filter(Boolean) }})} />
+              </div>
+            )}
+            {editing.type === 'echarts' && (
+              <div style={{marginBottom:12}}>
+                <label>图表类型：</label>
+                <select value={editing.data.chartType||'line'} onChange={e => {
+                  const chartType = e.target.value;
+                  let option = {};
+                  if(chartType==='line') option = {xAxis:{type:'category',data:['Mon','Tue','Wed','Thu','Fri']},yAxis:{type:'value'},series:[{data:[120,200,150,80,70],type:'line'}]};
+                  if(chartType==='bar') option = {xAxis:{type:'category',data:['Mon','Tue','Wed','Thu','Fri']},yAxis:{type:'value'},series:[{data:[120,200,150,80,70],type:'bar'}]};
+                  setEditing({...editing!, data: { chartType, option }});
+                }}>
+                  <option value="line">折线图</option>
+                  <option value="bar">柱状图</option>
+                </select>
+              </div>
+            )}
+            {/* 日历无需额外配置 */}
+            <div style={{marginTop:24,display:'flex',gap:12}}>
+              <button onClick={saveEdit} style={{background:'#3B82F6',color:'#fff',border:'none',borderRadius:8,padding:'6px 20px',fontWeight:600}}>保存</button>
+              <button onClick={()=>setEditing(null)} style={{background:'#aaa',color:'#fff',border:'none',borderRadius:8,padding:'6px 20px'}}>取消</button>
+            </div>
+          </div>
+        </div>
+      )}
       <style>{`
         .dashboard-animated .react-grid-item {
           transition: all 0.4s cubic-bezier(.175,.885,.32,1.275);
