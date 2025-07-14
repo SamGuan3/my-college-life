@@ -1,4 +1,5 @@
 import Banner from './Banner';
+import Dashboard from './Dashboard';
 
 /**
  * 首页欢迎横幅组件
@@ -12,8 +13,9 @@ const HomeBanner = () => (
       minHeight: "100vh",
       background: "transparent",
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "flex-start"
     }}
   >
     {/* 玻璃质感卡片 */}
@@ -36,40 +38,42 @@ const HomeBanner = () => (
       {/* 头像和名字（Banner组件） */}
       <Banner />
       {/* 欢迎语和账号信息 */}
-      <div style={{ marginTop: 32 }}>
-        <h1 style={{
-          margin: 0,
-          fontSize: "2.5rem",
-          fontWeight: "bold",
-          letterSpacing: 2,
-          textShadow: "0 2px 16px rgba(0,0,0,0.12)"
-        }}>
-          欢迎来到呱鲨的大学生活
-        </h1>
-        <div style={{ marginTop: 16 }}>
-          抖音号：
-          <a
-            href="https://www.douyin.com/user/G3462343313"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#ff5f6d", fontWeight: 700 }}
-          >
-            G3462343313
-          </a>
-        </div>
-        <div>
-          Bilibili账号：
-          <a
-            href="https://space.bilibili.com/你的UID"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#36d1c4", fontWeight: 700 }}
-          >
-            _呱呱呱鲨
-          </a>
-        </div>
-        <div style={{ color: 'limegreen', marginTop: 4, fontWeight: 700 }}>微信：Guansss__</div>
+      <h1 style={{
+        margin: 0,
+        fontSize: "2.5rem",
+        fontWeight: "bold",
+        letterSpacing: 2,
+        textShadow: "0 2px 16px rgba(0,0,0,0.12)"
+      }}>
+        欢迎来到呱鲨的大学生活
+      </h1>
+      <div style={{ marginTop: 16 }}>
+        抖音号：
+        <a
+          href="https://www.douyin.com/user/G3462343313"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#ff5f6d", fontWeight: 700 }}
+        >
+          G3462343313
+        </a>
       </div>
+      <div>
+        Bilibili账号：
+        <a
+          href="https://space.bilibili.com/你的UID"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#36d1c4", fontWeight: 700 }}
+        >
+          _呱呱呱鲨
+        </a>
+      </div>
+      <div style={{ color: 'limegreen', marginTop: 4, fontWeight: 700 }}>微信：Guansss__</div>
+    </div>
+    {/* 新增：首页直接显示仪表盘 */}
+    <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: 32 }}>
+      <Dashboard />
     </div>
     {/* 可选：底部渐变装饰 */}
     <div style={{
