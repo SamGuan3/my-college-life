@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeBanner from "./components/HomeBanner";
 import { useEffect } from 'react';
+import Dashboard from './components/Dashboard';
 
   // 其他页面内容可以先用简单占位
 function Life() {
@@ -367,6 +368,7 @@ function App() {
         <Route path="/hobby" element={<Hobby />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
