@@ -41,7 +41,7 @@ const Dashboard = () => {
         width={900}
         isResizable
         isDraggable
-        onLayoutChange={layout => {
+        onLayoutChange={(layout: any[]) => {
           setWidgets(widgets.map((w, idx) => ({ ...w, ...layout[idx] })));
         }}
         useCSSTransforms={true}
