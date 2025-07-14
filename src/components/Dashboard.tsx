@@ -71,7 +71,22 @@ const widgetTypeOptions = [
   { value: 'echarts', label: '图表' },
 ];
 
-const Dashboard = () => {
+/**
+ * Dashboard 仪表盘组件 Props
+ * @typedef {Object} DashboardProps
+ * @property {string} [customBg] - 小部件卡片和编辑弹窗的自定义背景色
+ */
+interface DashboardProps {
+  /** 小部件卡片和弹窗的自定义背景色 */
+  customBg?: string;
+}
+
+/**
+ * 仪表盘小部件区
+ * @param {DashboardProps} props
+ * @returns {JSX.Element}
+ */
+const Dashboard = ({ customBg }: DashboardProps) => {
   const [widgets, setWidgets] = useState<Widget[]>(() => getStoredWidgets() || initialWidgets);
   const [editing, setEditing] = useState<Widget | null>(null);
 
@@ -146,7 +161,7 @@ const Dashboard = () => {
       >
         {widgets.map((w) => (
           <div key={w.i} className="dashboard-widget-animated" style={{
-            background: 'rgba(255,255,255,0.18)',
+            background: customBg || 'rgba(255,255,255,0.18)',
             borderRadius: 18,
             boxShadow: '0 4px 24px 0 rgba(31,38,135,0.10)',
             backdropFilter: 'blur(12px) saturate(180%)',
@@ -164,9 +179,13 @@ const Dashboard = () => {
             overflow: 'hidden',
           }}>
             {/* 删除按钮 */}
-            <button onClick={e => {e.stopPropagation(); removeWidget(w.i);}} style={{position:'absolute',top:8,right:8,background:'#EF4444',color:'#fff',border:'none',borderRadius:6,padding:'2px 8px',fontSize:14,cursor:'pointer',zIndex:2}}>删除</button>
+            <button onClick={e => {e.stopPropagation(); removeWidget(w.i);}} style={{position:'absolute',top:8,right:8,background:'#EF4444',color:'#fff',border:'none',borderRadius:6,padding:'2px 8px',fontSize:14,cursor:'pointer',zIndex:2}}>
+              删除
+            </button>
             {/* 编辑按钮 */}
-            <button onClick={e => {e.stopPropagation(); startEdit(w);}} style={{position:'absolute',top:8,left:8,background:'#F59E42',color:'#fff',border:'none',borderRadius:6,padding:'2px 8px',fontSize:14,cursor:'pointer',zIndex:2}}>编辑</button>
+            <button onClick={e => {e.stopPropagation(); startEdit(w);}} style={{position:'absolute',top:8,left:8,background:'#F59E42',color:'#fff',border:'none',borderRadius:6,padding:'2px 8px',fontSize:14,cursor:'pointer',zIndex:2}}>
+              编辑
+            </button>
             {renderWidgetContent(w)}
           </div>
         ))}
@@ -174,46 +193,50 @@ const Dashboard = () => {
       {/* 编辑弹窗 */}
       {editing && (
         <div style={{position:'fixed',top:0,left:0,right:0,bottom:0,background:'rgba(0,0,0,0.25)',zIndex:10,display:'flex',alignItems:'center',justifyContent:'center'}}>
-          <div style={{background:'rgba(255,255,255,0.95)',borderRadius:16,padding:32,minWidth:320,boxShadow:'0 8px 32px #3B82F6AA'}}>
-            <h3 style={{marginBottom:16}}>编辑小部件</h3>
-            <div style={{marginBottom:12}}>
-              <label>类型：</label>
-              <select value={editing.type} onChange={e => setEditing({...editing!, type: e.target.value, data: {}})}>
+          <div style={{background: customBg ? customBg.replace('0.18','0.85') : 'rgba(30,41,59,0.98)', color:'#222', borderRadius:16,padding:32,minWidth:320,boxShadow:'0 8px 32px #3B82F6AA', minHeight:320}}>
+            <h3 style={{marginBottom:16, color:'#222', fontWeight:700, fontSize:22, letterSpacing:1}}>编辑小部件</h3>
+            <div style={{marginBottom:12, display:'flex', alignItems:'center', gap:8}}>
+              <label style={{fontWeight:600, color:'#222'}}>类型：</label>
+              <select value={editing.type} onChange={e => setEditing({...editing!, type: e.target.value, data: {}})}
+                style={{padding:'6px 16px', borderRadius:6, border:'1.5px solid #3B82F6', background:'#fff', color:'#222', fontWeight:500, outline:'none'}}>
                 {widgetTypeOptions.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
             </div>
             {/* 不同类型的内容编辑 */}
             {editing.type === 'gpa' && (
-              <div style={{marginBottom:12}}>
-                <label>GPA：</label>
-                <input type="number" step="0.01" value={editing.data.value || ''} onChange={e => setEditing({...editing!, data: { value: parseFloat(e.target.value) }})} />
+              <div style={{marginBottom:12, display:'flex', alignItems:'center', gap:8}}>
+                <label style={{fontWeight:600, color:'#222'}}>GPA：</label>
+                <input type="number" step="0.01" value={editing.data.value || ''} onChange={e => setEditing({...editing!, data: { value: parseFloat(e.target.value) }})}
+                  style={{padding:'6px 16px', borderRadius:6, border:'1.5px solid #3B82F6', background:'#fff', color:'#222', fontWeight:500, outline:'none', width:100}} />
               </div>
             )}
             {editing.type === 'todo' && (
-              <div style={{marginBottom:12}}>
-                <label>任务（逗号分隔）：</label>
-                <input type="text" value={editing.data.tasks ? editing.data.tasks.join(',') : ''} onChange={e => setEditing({...editing!, data: { tasks: e.target.value.split(',').map((s: string) => s.trim()).filter(Boolean) }})} />
+              <div style={{marginBottom:12, display:'flex', alignItems:'center', gap:8}}>
+                <label style={{fontWeight:600, color:'#222'}}>任务（逗号分隔）：</label>
+                <input type="text" value={editing.data.tasks ? editing.data.tasks.join(',') : ''} onChange={e => setEditing({...editing!, data: { tasks: e.target.value.split(',').map((s: string) => s.trim()).filter(Boolean) }})}
+                  style={{padding:'6px 16px', borderRadius:6, border:'1.5px solid #3B82F6', background:'#fff', color:'#222', fontWeight:500, outline:'none', width:180}} />
               </div>
             )}
             {editing.type === 'echarts' && (
-              <div style={{marginBottom:12}}>
-                <label>图表类型：</label>
+              <div style={{marginBottom:12, display:'flex', alignItems:'center', gap:8}}>
+                <label style={{fontWeight:600, color:'#222'}}>图表类型：</label>
                 <select value={editing.data.chartType||'line'} onChange={e => {
                   const chartType = e.target.value;
                   let option = {};
                   if(chartType==='line') option = {xAxis:{type:'category',data:['Mon','Tue','Wed','Thu','Fri']},yAxis:{type:'value'},series:[{data:[120,200,150,80,70],type:'line'}]};
                   if(chartType==='bar') option = {xAxis:{type:'category',data:['Mon','Tue','Wed','Thu','Fri']},yAxis:{type:'value'},series:[{data:[120,200,150,80,70],type:'bar'}]};
                   setEditing({...editing!, data: { chartType, option }});
-                }}>
+                }}
+                  style={{padding:'6px 16px', borderRadius:6, border:'1.5px solid #3B82F6', background:'#fff', color:'#222', fontWeight:500, outline:'none'}}>
                   <option value="line">折线图</option>
                   <option value="bar">柱状图</option>
                 </select>
               </div>
             )}
             {/* 日历无需额外配置 */}
-            <div style={{marginTop:24,display:'flex',gap:12}}>
-              <button onClick={saveEdit} style={{background:'#3B82F6',color:'#fff',border:'none',borderRadius:8,padding:'6px 20px',fontWeight:600}}>保存</button>
-              <button onClick={()=>setEditing(null)} style={{background:'#aaa',color:'#fff',border:'none',borderRadius:8,padding:'6px 20px'}}>取消</button>
+            <div style={{marginTop:24,display:'flex',gap:12, justifyContent:'flex-end'}}>
+              <button onClick={saveEdit} style={{background:'#3B82F6',color:'#fff',border:'none',borderRadius:8,padding:'8px 28px',fontWeight:700, fontSize:16, boxShadow:'0 2px 8px #3B82F633', letterSpacing:1, cursor:'pointer', transition:'background 0.2s'}}>保存</button>
+              <button onClick={()=>setEditing(null)} style={{background:'#aaa',color:'#fff',border:'none',borderRadius:8,padding:'8px 28px',fontWeight:700, fontSize:16, cursor:'pointer', transition:'background 0.2s'}}>取消</button>
             </div>
           </div>
         </div>
@@ -225,6 +248,17 @@ const Dashboard = () => {
         .dashboard-widget-animated:hover {
           transform: scale(1.04);
           box-shadow: 0 8px 32px 0 #3B82F6AA, 0 2px 16px 0 #8B5CF6AA;
+        }
+        .dashboard-widget-animated button {
+          min-width: 48px;
+          min-height: 32px;
+          font-size: 15px;
+          font-weight: 600;
+          opacity: 0.92;
+          transition: background 0.18s, box-shadow 0.18s;
+        }
+        .dashboard-widget-animated button:active {
+          box-shadow: 0 0 0 2px #3B82F6;
         }
       `}</style>
     </div>

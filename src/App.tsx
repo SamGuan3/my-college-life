@@ -68,7 +68,7 @@ function Life() {
       </div>
     </div>
   );
-}
+  }
   function Hobby() {
     return (
       <div
@@ -271,6 +271,7 @@ function Life() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          flexDirection: 'column', // 使卡片和小部件垂直排列
           paddingTop: 60, // 预留导航栏高度
           boxSizing: 'border-box',
         }}
@@ -350,6 +351,11 @@ function Life() {
               </ul>
             </div>
           </div>
+        </div>
+        {/* 小插件区域，整体居中，卡片下方 */}
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: 40 }}>
+          {/* 传递自定义样式props，便于后续调整 */}
+          <Dashboard customBg="rgba(255,255,255,0.18)" />
         </div>
       </div>
     );
