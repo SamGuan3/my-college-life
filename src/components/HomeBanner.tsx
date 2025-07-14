@@ -71,10 +71,6 @@ const HomeBanner = () => (
       </div>
       <div style={{ color: 'limegreen', marginTop: 4, fontWeight: 700 }}>微信：Guansss__</div>
     </div>
-    {/* 新增：首页直接显示仪表盘 */}
-    <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: 32 }}>
-      <Dashboard />
-    </div>
     {/* 可选：底部渐变装饰 */}
     <div style={{
       position: "absolute",
