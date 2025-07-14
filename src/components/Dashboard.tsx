@@ -8,7 +8,7 @@ import 'react-resizable/css/styles.css';
  * @returns {JSX.Element}
  */
 const initialWidgets = [
-  { i: 'gpa', x: 0, y: 0, w: 2, h: 2, content: <div>GPA: <span style={{fontWeight:700, fontSize:32}}>3.9</span></div> },
+  { i: 'gpa', x: 0, y: 0, w: 2, h: 2, content: <div>GPA: <span style={{fontWeight:700, fontSize:32, background: 'linear-gradient(90deg,#3B82F6,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>3.9</span></div> },
   { i: 'todo', x: 2, y: 0, w: 2, h: 2, content: <div>任务：<ul><li>完成作业</li><li>参加活动</li></ul></div> },
 ];
 
@@ -25,16 +25,16 @@ const Dashboard = () => {
         y: Infinity,
         w: 2,
         h: 2,
-        content: <div>新小部件 {widgets.length + 1}</div>
+        content: <div style={{background: 'linear-gradient(90deg,#10B981,#F59E42)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 700}}>新小部件 {widgets.length + 1}</div>
       }
     ]);
   };
 
   return (
     <div style={{margin: '40px auto', maxWidth: 900}}>
-      <button onClick={addWidget} style={{marginBottom: 16, padding: '8px 20px', borderRadius: 8, background: '#3B82F6', color: '#fff', fontWeight: 600}}>+ 添加小部件</button>
+      <button onClick={addWidget} style={{marginBottom: 16, padding: '8px 20px', borderRadius: 8, background: '#3B82F6', color: '#fff', fontWeight: 600, transition: 'background 0.2s', boxShadow: '0 2px 8px #3B82F633'}}>+ 添加小部件</button>
       <GridLayout
-        className="layout"
+        className="layout dashboard-animated"
         layout={widgets}
         cols={6}
         rowHeight={80}
@@ -42,12 +42,13 @@ const Dashboard = () => {
         isResizable
         isDraggable
         onLayoutChange={layout => {
-          // 保持小部件顺序
           setWidgets(widgets.map((w, idx) => ({ ...w, ...layout[idx] })));
         }}
+        useCSSTransforms={true}
+        style={{transition: 'all 0.4s cubic-bezier(.175,.885,.32,1.275)'}}
       >
         {widgets.map(w => (
-          <div key={w.i} style={{
+          <div key={w.i} className="dashboard-widget-animated" style={{
             background: 'rgba(255,255,255,0.18)',
             borderRadius: 18,
             boxShadow: '0 4px 24px 0 rgba(31,38,135,0.10)',
@@ -59,12 +60,23 @@ const Dashboard = () => {
             justifyContent: 'center',
             fontSize: 20,
             color: '#fff',
-            height: '100%'
+            height: '100%',
+            transition: 'box-shadow 0.3s, transform 0.3s',
+            cursor: 'pointer',
           }}>
             {w.content}
           </div>
         ))}
       </GridLayout>
+      <style>{`
+        .dashboard-animated .react-grid-item {
+          transition: all 0.4s cubic-bezier(.175,.885,.32,1.275);
+        }
+        .dashboard-widget-animated:hover {
+          transform: scale(1.04);
+          box-shadow: 0 8px 32px 0 #3B82F6AA, 0 2px 16px 0 #8B5CF6AA;
+        }
+      `}</style>
     </div>
   );
 };
