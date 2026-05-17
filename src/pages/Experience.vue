@@ -1,0 +1,137 @@
+<template>
+  <div class="min-h-screen pt-16">
+    <div class="mx-auto max-w-7xl px-6 py-12">
+      <div class="glass-card p-8 mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+          我的经验
+        </h1>
+        <p class="text-xl text-white/80">
+          大学期间的学习和成长历程
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-8 space-y-6">
+          <div class="glass-card p-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="text-primary-400">01</span>
+              <span>教育背景</span>
+              <div class="flex-1 h-px bg-white/10"></div>
+            </h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-32 text-right">
+                  <div class="text-sm font-bold text-primary-400">2023 - 至今</div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold mb-1">计算机科学与技术专业</h4>
+                  <p class="text-sm text-white/70 mb-2">某大学 · 本科</p>
+                  <p class="text-sm text-white/80">GPA: 3.9/4.0，专业排名前10%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="text-primary-400">02</span>
+              <span>技能详情</span>
+              <div class="flex-1 h-px bg-white/10"></div>
+            </h2>
+            <div class="space-y-6">
+              <div v-for="skill in skills" :key="skill.name">
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">{{ skill.name }}</span>
+                  <span class="text-primary-400">{{ skill.level }}%</span>
+                </div>
+                <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    class="h-full bg-gradient-to-r from-primary-500 to-purple-500 transition-all duration-1000"
+                    :style="{ width: `${skill.level}%` }"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="text-primary-400">03</span>
+              <span>获奖情况</span>
+              <div class="flex-1 h-px bg-white/10"></div>
+            </h2>
+            <div class="space-y-4">
+              <div
+                v-for="award in awards"
+                :key="award.id"
+                class="glass-card p-4 hover:bg-white/15 transition-all"
+              >
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h4 class="font-bold mb-1">{{ award.title }}</h4>
+                    <p class="text-sm text-white/70">{{ award.description }}</p>
+                  </div>
+                  <span class="text-sm text-primary-400">{{ award.time }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="glass-card p-6 sticky top-24">
+            <h3 class="text-lg font-bold mb-4">快速链接</h3>
+            <div class="space-y-2">
+              <a href="#" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm">
+                📄 下载简历
+              </a>
+              <a href="#" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm">
+                💻 GitHub 主页
+              </a>
+              <a href="#" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm">
+                📧 联系我
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+interface Skill {
+  name: string
+  level: number
+}
+
+interface Award {
+  id: number
+  title: string
+  description: string
+  time: string
+}
+
+const skills: Skill[] = [
+  { name: 'C/C++ 编程', level: 90 },
+  { name: 'JavaScript/TypeScript', level: 85 },
+  { name: 'React/Vue', level: 80 },
+  { name: 'Python/AI', level: 75 },
+  { name: '数据结构与算法', level: 85 }
+]
+
+const awards: Award[] = [
+  { id: 1, title: '编程之星大赛一等奖', description: '数据结构可视化工具项目', time: '2023年' },
+  { id: 2, title: '优秀学生干部', description: '学生会技术部负责人', time: '2024年' },
+  { id: 3, title: 'ACM竞赛铜奖', description: '省级程序设计竞赛', time: '2024年' }
+]
+</script>
+
+<style scoped>
+.text-gradient {
+  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+</style>
