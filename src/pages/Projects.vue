@@ -2,10 +2,10 @@
   <div class="min-h-screen pt-24 pb-12">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="glass-card p-10 lg:p-12 mb-10">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient leading-tight">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gradient">
           项目展示
         </h1>
-        <p class="text-2xl lg:text-3xl text-white/80">
+        <p class="text-2xl lg:text-3xl" style="color: var(--text-secondary)">
           这些是我大学期间完成的一些项目
         </p>
       </div>
@@ -14,7 +14,7 @@
         <div
           v-for="project in projects"
           :key="project.id"
-          class="glass-card overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-lg backdrop-blur-xl transition-all duration-300 hover:shadow-2xl hover:bg-white/15 hover:scale-105 group"
+          class="glass-card overflow-hidden rounded-3xl transition-all duration-300 hover:shadow-2xl hover:scale-105 group"
         >
           <div class="relative overflow-hidden">
             <img
@@ -34,8 +34,12 @@
           </div>
 
           <div class="p-6 lg:p-8">
-            <h3 class="text-2xl lg:text-3xl font-bold mb-4">{{ project.title }}</h3>
-            <p class="text-base lg:text-lg text-white/70 mb-6">{{ project.description }}</p>
+            <h3 class="text-2xl lg:text-3xl font-bold mb-4" style="color: var(--text-primary)">
+              {{ project.title }}
+            </h3>
+            <p class="text-base lg:text-lg mb-6" style="color: var(--text-secondary)">
+              {{ project.description }}
+            </p>
 
             <div class="flex flex-wrap gap-3 mb-6">
               <span
@@ -47,9 +51,9 @@
               </span>
             </div>
 
-            <div class="flex items-center justify-between pt-6 border-t border-white/10">
-              <span class="text-base lg:text-lg text-white/60">{{ project.time }}</span>
-              <a href="#" class="text-primary-400 hover:text-primary-300 text-base lg:text-lg font-medium">
+            <div class="flex items-center justify-between pt-6 border-t" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
+              <span class="text-base lg:text-lg" style="color: var(--text-muted)">{{ project.time }}</span>
+              <a href="#" class="text-base lg:text-lg font-medium" style="color: #3B82F6; hover: color: #60a5fa">
                 查看详情 →
               </a>
             </div>
@@ -58,23 +62,25 @@
       </div>
 
       <div class="mt-12 glass-card p-10 lg:p-12">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-8 text-center">项目统计</h2>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-8 text-center" style="color: var(--text-primary)">
+          项目统计
+        </h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="text-center">
             <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.total }}</div>
-            <div class="text-lg lg:text-xl text-white/70">总项目数</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">总项目数</div>
           </div>
           <div class="text-center">
             <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.completed }}</div>
-            <div class="text-lg lg:text-xl text-white/70">已完成</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">已完成</div>
           </div>
           <div class="text-center">
             <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.ongoing }}</div>
-            <div class="text-lg lg:text-xl text-white/70">进行中</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">进行中</div>
           </div>
           <div class="text-center">
             <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.technologies }}</div>
-            <div class="text-lg lg:text-xl text-white/70">使用技术</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">使用技术</div>
           </div>
         </div>
       </div>
@@ -115,7 +121,7 @@ const projects: Project[] = [
   {
     id: 3,
     title: '个人作品集网站',
-    description: 'React + Vite 构建的展示网站',
+    description: 'React · Vite 构建的展示网站',
     image: '/mybackg.jpg',
     techStack: ['React', 'TypeScript', 'Vite'],
     tags: ['前端', '个人项目'],

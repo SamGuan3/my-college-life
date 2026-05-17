@@ -1,11 +1,11 @@
 <template>
   <nav
-    class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur-xl"
+    class="fixed top-0 left-0 right-0 z-50 border-b border-border/10 bg-bg/20 backdrop-blur-xl"
   >
     <div class="mx-auto max-w-7xl px-6">
       <div class="flex h-20 items-center justify-between">
         <div class="flex items-center gap-8">
-          <router-link to="/" class="text-3xl font-bold text-white">
+          <router-link to="/" class="text-3xl font-bold text-text">
             {{ title }}
           </router-link>
 
@@ -14,8 +14,8 @@
               v-for="item in navItems"
               :key="item.path"
               :to="item.path"
-              class="nav-link rounded-lg px-6 py-3 text-lg font-medium text-white/80 transition-all hover:bg-white/10 hover:text-white"
-              :class="{ 'bg-white/10 text-white': $route.path === item.path }"
+              class="nav-link rounded-lg px-6 py-3 text-lg font-medium text-text/80 transition-all hover:bg-bg/10 hover:text-text"
+              :class="{ 'bg-bg/10 text-text': $route.path === item.path }"
             >
               {{ item.label }}
             </router-link>
@@ -24,7 +24,7 @@
 
         <div class="flex items-center gap-4">
           <button
-            class="glass-button rounded-lg p-3 text-white hover:bg-white/20"
+            class="glass-button rounded-lg p-3 text-text hover:bg-bg/20"
             @click="toggleTheme"
             title="切换主题"
           >
@@ -33,7 +33,7 @@
           </button>
 
           <button
-            class="md:hidden rounded-lg p-3 text-white hover:bg-white/20"
+            class="md:hidden rounded-lg p-3 text-text hover:bg-bg/20"
             @click="toggleMobileMenu"
           >
             <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,14 +48,14 @@
         </div>
       </div>
 
-      <div v-if="mobileMenuOpen" class="md:hidden border-t border-white/10 py-6">
+      <div v-if="mobileMenuOpen" class="md:hidden border-t border-border/10 py-6">
         <div class="flex flex-col gap-3">
           <router-link
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="rounded-lg px-6 py-4 text-lg font-medium text-white/80 transition-all hover:bg-white/10 hover:text-white"
-            :class="{ 'bg-white/10 text-white': $route.path === item.path }"
+            class="rounded-lg px-6 py-4 text-lg font-medium text-text/80 transition-all hover:bg-bg/10 hover:text-text"
+            :class="{ 'bg-bg/10 text-text': $route.path === item.path }"
             @click="mobileMenuOpen = false"
           >
             {{ item.label }}
@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 
 interface NavItem {
   label: string
@@ -86,13 +86,12 @@ const navItems: NavItem[] = [
 ]
 
 const mobileMenuOpen = ref(false)
-const isDark = ref(true)
 
-const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value
-}
+const themeContext = inject<{
+  isDark: { value: boolean }
+  toggleTheme: () => void
+}>('theme')
 
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-}
+const isDark = themeContext?.isDark || ref(true)
+const toggleTheme = themeContext?.toggleTheme || (() => {})
 </script>

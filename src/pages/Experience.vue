@@ -5,48 +5,48 @@
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient leading-tight">
           我的经验
         </h1>
-        <p class="text-2xl lg:text-3xl text-white/80">
+        <p class="text-2xl lg:text-3xl" style="color: var(--text-secondary)">
           大学期间的学习和成长历程
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-        <div class="lg:col-span-8 space-y-8">
-          <div class="glass-card p-10 lg:p-12">
+      <div class="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 lg:gap-12">
+        <div class="space-y-8">
+          <div class="glass-card-lg p-8 lg:p-10">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
-              <span class="text-primary-400">01</span>
-              <span>教育背景</span>
-              <div class="flex-1 h-px bg-white/10"></div>
+              <span style="color: #3B82F6">01</span>
+              <span style="color: var(--text-primary)">教育背景</span>
+              <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="space-y-8">
               <div class="flex gap-6">
                 <div class="flex-shrink-0 w-40 text-right">
-                  <div class="text-lg lg:text-xl font-bold text-primary-400">2023 - 至今</div>
+                  <div class="text-lg lg:text-xl font-bold" style="color: #3B82F6">2023 - 至今</div>
                 </div>
                 <div class="flex-1">
-                  <h4 class="text-2xl lg:text-3xl font-bold mb-3">计算机科学与技术专业</h4>
-                  <p class="text-lg lg:text-xl text-white/70 mb-3">某大学 · 本科</p>
-                  <p class="text-lg lg:text-xl text-white/80">GPA: 3.9/4.0，专业排名前10%</p>
+                  <h4 class="text-2xl lg:text-3xl font-bold mb-3" style="color: var(--text-primary)">计算机科学与技术专业</h4>
+                  <p class="text-lg lg:text-xl mb-3" style="color: var(--text-muted)">某大学 · 本科</p>
+                  <p class="text-lg lg:text-xl" style="color: var(--text-secondary)">GPA: 3.9/4.0，专业排名前10%</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="glass-card p-10 lg:p-12">
+          <div class="glass-card-lg p-8 lg:p-10">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
-              <span class="text-primary-400">02</span>
-              <span>技能详情</span>
-              <div class="flex-1 h-px bg-white/10"></div>
+              <span style="color: #3B82F6">02</span>
+              <span style="color: var(--text-primary)">技能详情</span>
+              <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="space-y-8">
               <div v-for="skill in skills" :key="skill.name">
                 <div class="flex justify-between mb-3">
-                  <span class="text-xl lg:text-2xl font-medium">{{ skill.name }}</span>
-                  <span class="text-xl lg:text-2xl text-primary-400">{{ skill.level }}%</span>
+                  <span class="text-xl lg:text-2xl font-medium" style="color: var(--text-primary)">{{ skill.name }}</span>
+                  <span class="text-xl lg:text-2xl" style="color: #3B82F6">{{ skill.level }}%</span>
                 </div>
-                <div class="h-4 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-4 rounded-full overflow-hidden" style="background-color: var(--border-color); opacity: 0.1">
                   <div
-                    class="h-full bg-gradient-to-r from-primary-500 to-purple-500 transition-all duration-1000"
+                    class="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-1000"
                     :style="{ width: `${skill.level}%` }"
                   ></div>
                 </div>
@@ -54,43 +54,82 @@
             </div>
           </div>
 
-          <div class="glass-card p-10 lg:p-12">
+          <div class="glass-card-lg p-8 lg:p-10">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
-              <span class="text-primary-400">03</span>
-              <span>获奖情况</span>
-              <div class="flex-1 h-px bg-white/10"></div>
+              <span style="color: #3B82F6">03</span>
+              <span style="color: var(--text-primary)">获奖情况</span>
+              <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="space-y-6">
               <div
                 v-for="award in awards"
                 :key="award.id"
-                class="glass-card p-6 hover:bg-white/15 transition-all"
+                class="glass-card-sm p-6 hover:bg-white/15 transition-all"
               >
                 <div class="flex items-start justify-between">
                   <div>
-                    <h4 class="text-xl lg:text-2xl font-bold mb-2">{{ award.title }}</h4>
-                    <p class="text-base lg:text-lg text-white/70">{{ award.description }}</p>
+                    <h4 class="text-xl lg:text-2xl font-bold mb-2" style="color: var(--text-primary)">{{ award.title }}</h4>
+                    <p class="text-base lg:text-lg" style="color: var(--text-muted)">{{ award.description }}</p>
                   </div>
-                  <span class="text-lg lg:text-xl text-primary-400">{{ award.time }}</span>
+                  <span class="text-lg lg:text-xl" style="color: #3B82F6">{{ award.time }}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-4">
-          <div class="glass-card p-8 lg:p-10 sticky top-28">
-            <h3 class="text-xl lg:text-2xl font-bold mb-6">快速链接</h3>
-            <div class="space-y-4">
-              <a href="#" class="block px-6 py-4 rounded-lg hover:bg-white/10 transition-all text-lg lg:text-xl">
+        <div>
+          <div class="glass-card-lg p-8 lg:p-10 sticky top-28">
+            <h3 class="text-xl lg:text-2xl font-bold mb-6" style="color: var(--text-primary)">快速链接</h3>
+            <div class="space-y-3 mb-8">
+              <a href="#" class="block px-5 py-3 rounded-xl transition-all text-lg lg:text-xl hover:bg-white/10" style="color: var(--text-secondary)">
                 📄 下载简历
               </a>
-              <a href="#" class="block px-6 py-4 rounded-lg hover:bg-white/10 transition-all text-lg lg:text-xl">
-                💻 GitHub 主页
+              <a href="#" class="block px-5 py-3 rounded-xl transition-all text-lg lg:text-xl hover:bg-white/10" style="color: var(--text-secondary)">
+                � GitHub 主页
               </a>
-              <a href="#" class="block px-6 py-4 rounded-lg hover:bg-white/10 transition-all text-lg lg:text-xl">
+              <a href="#" class="block px-5 py-3 rounded-xl transition-all text-lg lg:text-xl hover:bg-white/10" style="color: var(--text-secondary)">
                 📧 联系我
               </a>
+            </div>
+
+            <div class="border-t pt-6 mb-8" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
+              <h4 class="text-lg lg:text-xl font-bold mb-4" style="color: var(--text-primary)">证书展示</h4>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="glass-card-sm aspect-video rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                  <span class="text-3xl">🏆</span>
+                </div>
+                <div class="glass-card-sm aspect-video rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                  <span class="text-3xl">🎖️</span>
+                </div>
+                <div class="glass-card-sm aspect-video rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                  <span class="text-3xl">📜</span>
+                </div>
+                <div class="glass-card-sm aspect-video rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                  <span class="text-3xl">⭐</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t pt-6" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
+              <h4 class="text-lg lg:text-xl font-bold mb-4" style="color: var(--text-primary)">个人标签</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm lg:text-base text-blue-300">
+                  计算机科学
+                </span>
+                <span class="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-sm lg:text-base text-purple-300">
+                  全栈开发
+                </span>
+                <span class="px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full text-sm lg:text-base text-green-300">
+                  AI爱好者
+                </span>
+                <span class="px-4 py-2 bg-orange-500/20 border border-orange-400/30 rounded-full text-sm lg:text-base text-orange-300">
+                  竞赛达人
+                </span>
+                <span class="px-4 py-2 bg-pink-500/20 border border-pink-400/30 rounded-full text-sm lg:text-base text-pink-300">
+                  开源贡献者
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -126,3 +165,22 @@ const awards: Award[] = [
   { id: 3, title: 'ACM竞赛铜奖', description: '省级程序设计竞赛', time: '2024年' }
 ]
 </script>
+
+<style scoped>
+.glass-card-lg {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card-sm {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+</style>

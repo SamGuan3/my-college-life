@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-primary-900 via-purple-900 to-indigo-900">
+  <div class="min-h-screen" :class="themeClass">
     <canvas
       id="bg-canvas"
       class="fixed inset-0 w-full h-full pointer-events-none opacity-30"
@@ -22,9 +22,31 @@
 <script setup lang="ts">
 import Navbar from './components/Navbar.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
-import { onMounted } from 'vue'
+import { onMounted, provide, ref } from 'vue'
 
+const isDark = ref(true)
+
+const toggleTheme = () => {
+  isDark.value = !isDark.value
+  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
+}
+
+const themeClass = ref('theme-dark')
+
+// 提供主题状态给子组件
+provide('theme', {
+  isDark,
+  toggleTheme
+})
+
+// 初始化时检查本地存储
 onMounted(() => {
+  const savedTheme = localStorage.getItem('theme')
+  if (savedTheme !== null) {
+    isDark.value = savedTheme === 'dark'
+  }
+  updateTheme()
+  
   const canvas = document.getElementById('bg-canvas') as HTMLCanvasElement
   if (!canvas) return
 
@@ -82,6 +104,11 @@ onMounted(() => {
     canvas.height = window.innerHeight
   })
 })
+
+const updateTheme = () => {
+  themeClass.value = isDark.value ? 'theme-dark' : 'theme-light'
+  document.documentElement.className = themeClass.value
+}
 </script>
 
 <style>

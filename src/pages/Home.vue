@@ -15,44 +15,48 @@
                   呱
                 </span>
               </div>
-              <h2 class="text-3xl lg:text-4xl font-bold mb-3">呱鲨</h2>
-              <p class="text-white/70 text-base lg:text-lg">INTJ · 水瓶座</p>
+              <h2 class="text-3xl lg:text-4xl font-bold mb-3" style="color: var(--text-primary)">
+                呱鲨
+              </h2>
+              <p class="text-base lg:text-lg" style="color: var(--text-secondary)">INTJ · 水瓶座</p>
             </div>
 
-            <div class="border-t border-white/10 pt-6 space-y-4">
-              <div class="flex items-center gap-3 text-base lg:text-lg">
-                <span class="text-primary-400">📍</span>
-                <span>广州</span>
-              </div>
-              <div class="flex items-center gap-3 text-base lg:text-lg">
-                <span class="text-primary-400">🎓</span>
-                <span>在校大学生</span>
-              </div>
-              <div class="flex items-center gap-3 text-base lg:text-lg">
-                <span class="text-primary-400">💡</span>
-                <span>学习能力较强</span>
+            <div class="border-t" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
+              <div class="space-y-4 pt-6">
+                <div class="flex items-center gap-3 text-base lg:text-lg" style="color: var(--text-secondary)">
+                  <span style="color: #3B82F6">📍</span>
+                  <span>广州</span>
+                </div>
+                <div class="flex items-center gap-3 text-base lg:text-lg" style="color: var(--text-secondary)">
+                  <span style="color: #3B82F6">🎓</span>
+                  <span>在校大学生</span>
+                </div>
+                <div class="flex items-center gap-3 text-base lg:text-lg" style="color: var(--text-secondary)">
+                  <span style="color: #3B82F6">💡</span>
+                  <span>学习能力较强</span>
+                </div>
               </div>
             </div>
 
-            <div class="border-t border-white/10 pt-6 mt-6">
+            <div class="border-t pt-6 mt-6" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
               <div class="flex justify-center gap-4">
-                <a href="#" class="text-white/70 hover:text-white transition-colors" title="微信">
+                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="微信">
                   <span class="text-2xl lg:text-3xl">💬</span>
                 </a>
-                <a href="#" class="text-white/70 hover:text-white transition-colors" title="GitHub">
+                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="GitHub">
                   <span class="text-2xl lg:text-3xl">🐙</span>
                 </a>
-                <a href="#" class="text-white/70 hover:text-white transition-colors" title="邮箱">
+                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="邮箱">
                   <span class="text-2xl lg:text-3xl">📧</span>
                 </a>
-                <a href="#" class="text-white/70 hover:text-white transition-colors" title="QQ">
+                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="QQ">
                   <span class="text-2xl lg:text-3xl">📱</span>
                 </a>
               </div>
             </div>
 
-            <div class="border-t border-white/10 pt-6 mt-6">
-              <button class="w-full glass-button py-4 text-lg hover:bg-white/20">
+            <div class="border-t pt-6 mt-6" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
+              <button class="w-full glass-button py-4 text-lg hover:bg-bg/20">
                 联系我
               </button>
             </div>
@@ -61,13 +65,13 @@
 
         <div class="lg:col-span-9 order-1 lg:order-2 space-y-8">
           <div class="glass-card p-10 lg:p-12">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient leading-tight">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gradient">
               欢迎来到呱鲨的大学生活
             </h1>
-            <p class="text-2xl lg:text-3xl text-white/80 mb-8">
+            <p class="text-2xl lg:text-3xl mb-8" style="color: var(--text-secondary)">
               用液态玻璃风格，记录我的大学点滴
             </p>
-            <button @click="scrollToContent" class="glass-button px-8 py-4 text-lg hover:bg-white/20">
+            <button @click="scrollToContent" class="glass-button px-8 py-4 text-lg hover:bg-bg/20">
               了解一下 →
             </button>
           </div>
@@ -76,30 +80,30 @@
             <div class="grid grid-cols-3 gap-8 lg:gap-12">
               <div class="text-center">
                 <div class="text-5xl lg:text-6xl font-bold text-gradient mb-3">4</div>
-                <div class="text-lg lg:text-xl text-white/70">完成的个人项目</div>
+                <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">完成的个人项目</div>
               </div>
               <div class="text-center">
                 <div class="text-5xl lg:text-6xl font-bold text-gradient mb-3">3.9</div>
-                <div class="text-lg lg:text-xl text-white/70">GPA绩点</div>
+                <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">GPA绩点</div>
               </div>
               <div class="text-center">
                 <div class="text-5xl lg:text-6xl font-bold text-gradient mb-3">5+</div>
-                <div class="text-lg lg:text-xl text-white/70">获奖情况</div>
+                <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">获奖情况</div>
               </div>
             </div>
           </div>
 
           <div class="glass-card p-10 lg:p-12" id="about">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
-              <span class="text-primary-400">01</span>
-              <span>我的故事</span>
-              <div class="flex-1 h-px bg-white/10"></div>
+              <span style="color: #3B82F6">01</span>
+              <span style="color: var(--text-primary)">我的故事</span>
+              <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="space-y-4">
-              <p class="text-lg lg:text-xl text-white/80 leading-relaxed">
+              <p class="text-lg lg:text-xl leading-relaxed" style="color: var(--text-secondary)">
                 你好！我是呱鲨，一个充满好奇心和探索精神的大学生。我热爱编程、音乐、健身，也喜欢探索新事物。
               </p>
-              <p class="text-lg lg:text-xl text-white/80 leading-relaxed">
+              <p class="text-lg lg:text-xl leading-relaxed" style="color: var(--text-secondary)">
                 我的愿望是用技术改变世界，让生活变得更美好。在这里，我将分享我的大学生活、项目经历和技术探索。
               </p>
             </div>
@@ -107,50 +111,50 @@
 
           <div class="glass-card p-10 lg:p-12" id="skills">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
-              <span class="text-primary-400">02</span>
-              <span>我的能力</span>
-              <div class="flex-1 h-px bg-white/10"></div>
+              <span style="color: #3B82F6">02</span>
+              <span style="color: var(--text-primary)">我的能力</span>
+              <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              <div class="glass-card p-8 hover:bg-white/15 transition-all">
+              <div class="glass-card p-8 hover:bg-bg/15 transition-all">
                 <div class="text-4xl lg:text-5xl mb-4">💻</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-3">编程能力</h3>
-                <p class="text-base lg:text-lg text-white/70">C/C++ · Python · JavaScript · TypeScript</p>
+                <h3 class="text-xl lg:text-2xl font-bold mb-3" style="color: var(--text-primary)">编程能力</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary)">C/C++ · Python · JavaScript · TypeScript</p>
               </div>
-              <div class="glass-card p-8 hover:bg-white/15 transition-all">
+              <div class="glass-card p-8 hover:bg-bg/15 transition-all">
                 <div class="text-4xl lg:text-5xl mb-4">🎨</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-3">前端开发</h3>
-                <p class="text-base lg:text-lg text-white/70">React · Vue · TailwindCSS · Vite</p>
+                <h3 class="text-xl lg:text-2xl font-bold mb-3" style="color: var(--text-primary)">前端开发</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary)">React · Vue · TailwindCSS · Vite</p>
               </div>
-              <div class="glass-card p-8 hover:bg-white/15 transition-all">
+              <div class="glass-card p-8 hover:bg-bg/15 transition-all">
                 <div class="text-4xl lg:text-5xl mb-4">🤖</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-3">AI技术</h3>
-                <p class="text-base lg:text-lg text-white/70">机器学习 · 深度学习 · PyTorch</p>
+                <h3 class="text-xl lg:text-2xl font-bold mb-3" style="color: var(--text-primary)">AI技术</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary)">机器学习 · 深度学习 · PyTorch</p>
               </div>
-              <div class="glass-card p-8 hover:bg-white/15 transition-all">
+              <div class="glass-card p-8 hover:bg-bg/15 transition-all">
                 <div class="text-4xl lg:text-5xl mb-4">🔧</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-3">其他技能</h3>
-                <p class="text-base lg:text-lg text-white/70">Git · Docker · Linux · 算法</p>
+                <h3 class="text-xl lg:text-2xl font-bold mb-3" style="color: var(--text-primary)">其他技能</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary)">Git · Docker · Linux · 算法</p>
               </div>
             </div>
           </div>
 
           <div class="glass-card p-10 lg:p-12" id="timeline">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
-              <span class="text-primary-400">03</span>
-              <span>大学时间线</span>
-              <div class="flex-1 h-px bg-white/10"></div>
+              <span style="color: #3B82F6">03</span>
+              <span style="color: var(--text-primary)">大学时间线</span>
+              <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="space-y-8">
               <div v-for="(item, index) in timeline" :key="index" class="flex gap-6">
                 <div class="flex-shrink-0 w-32 text-right">
-                  <div class="text-lg lg:text-xl font-bold text-primary-400">{{ item.year }}</div>
+                  <div class="text-lg lg:text-xl font-bold" style="color: #3B82F6">{{ item.year }}</div>
                 </div>
                 <div class="relative flex-1">
-                  <div class="absolute left-0 top-3 w-4 h-4 bg-primary-500 rounded-full"></div>
+                  <div class="absolute left-0 top-3 w-4 h-4 rounded-full" style="background-color: #3B82F6"></div>
                   <div class="pl-10">
-                    <h4 class="text-xl lg:text-2xl font-bold mb-2">{{ item.title }}</h4>
-                    <p class="text-base lg:text-lg text-white/70">{{ item.description }}</p>
+                    <h4 class="text-xl lg:text-2xl font-bold mb-2" style="color: var(--text-primary)">{{ item.title }}</h4>
+                    <p class="text-base lg:text-lg" style="color: var(--text-secondary)">{{ item.description }}</p>
                   </div>
                 </div>
               </div>
