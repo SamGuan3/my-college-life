@@ -1,16 +1,16 @@
 <template>
-  <div class="min-h-screen pt-16">
+  <div class="min-h-screen pt-20">
     <div class="mx-auto max-w-7xl px-6 py-12">
-      <div class="glass-card p-8 mb-8">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+      <div class="glass-card p-10 mb-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gradient">
           项目展示
         </h1>
-        <p class="text-xl text-white/80">
+        <p class="text-2xl text-white/80">
           这些是我大学期间完成的一些项目
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
           v-for="project in projects"
           :key="project.id"
@@ -20,36 +20,36 @@
             <img
               :src="project.image"
               :alt="project.title"
-              class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div class="absolute top-4 right-4 flex gap-2">
               <span
                 v-for="tag in project.tags"
                 :key="tag"
-                class="glass-button px-3 py-1 text-xs"
+                class="glass-button px-4 py-2 text-sm"
               >
                 {{ tag }}
               </span>
             </div>
           </div>
 
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
-            <p class="text-white/70 text-sm mb-4">{{ project.description }}</p>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-4">{{ project.title }}</h3>
+            <p class="text-base text-white/70 mb-6">{{ project.description }}</p>
 
-            <div class="flex flex-wrap gap-2 mb-4">
+            <div class="flex flex-wrap gap-3 mb-6">
               <span
                 v-for="tech in project.techStack"
                 :key="tech"
-                class="px-3 py-1 bg-purple-500/20 border border-purple-400/30 rounded-full text-xs text-purple-300"
+                class="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-sm text-purple-300"
               >
                 {{ tech }}
               </span>
             </div>
 
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-sm text-white/60">{{ project.time }}</span>
-              <a href="#" class="text-primary-400 hover:text-primary-300 text-sm font-medium">
+            <div class="flex items-center justify-between pt-6 border-t border-white/10">
+              <span class="text-base text-white/60">{{ project.time }}</span>
+              <a href="#" class="text-primary-400 hover:text-primary-300 text-base font-medium">
                 查看详情 →
               </a>
             </div>
@@ -57,24 +57,24 @@
         </div>
       </div>
 
-      <div class="mt-12 glass-card p-8">
-        <h2 class="text-2xl font-bold mb-6 text-center">项目统计</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="mt-12 glass-card p-10">
+        <h2 class="text-3xl font-bold mb-8 text-center">项目统计</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="text-center">
-            <div class="text-5xl font-bold text-gradient mb-2">{{ stats.total }}</div>
-            <div class="text-sm text-white/70">总项目数</div>
+            <div class="text-6xl font-bold text-gradient mb-3">{{ stats.total }}</div>
+            <div class="text-lg text-white/70">总项目数</div>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-bold text-gradient mb-2">{{ stats.completed }}</div>
-            <div class="text-sm text-white/70">已完成</div>
+            <div class="text-6xl font-bold text-gradient mb-3">{{ stats.completed }}</div>
+            <div class="text-lg text-white/70">已完成</div>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-bold text-gradient mb-2">{{ stats.ongoing }}</div>
-            <div class="text-sm text-white/70">进行中</div>
+            <div class="text-6xl font-bold text-gradient mb-3">{{ stats.ongoing }}</div>
+            <div class="text-lg text-white/70">进行中</div>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-bold text-gradient mb-2">{{ stats.technologies }}</div>
-            <div class="text-sm text-white/70">使用技术</div>
+            <div class="text-6xl font-bold text-gradient mb-3">{{ stats.technologies }}</div>
+            <div class="text-lg text-white/70">使用技术</div>
           </div>
         </div>
       </div>
@@ -157,18 +157,3 @@ const stats = {
   technologies: 20
 }
 </script>
-
-<style scoped>
-.text-gradient {
-  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glass-button {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-</style>
