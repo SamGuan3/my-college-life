@@ -1,19 +1,19 @@
 <template>
-  <div class="min-h-screen pt-20">
-    <div class="mx-auto max-w-7xl px-6 py-12">
-      <div class="glass-card p-10 mb-10">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gradient">
+  <div class="min-h-screen pt-24 pb-12">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="glass-card p-10 lg:p-12 mb-10">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient leading-tight">
           我的经验
         </h1>
-        <p class="text-2xl text-white/80">
+        <p class="text-2xl lg:text-3xl text-white/80">
           大学期间的学习和成长历程
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         <div class="lg:col-span-8 space-y-8">
-          <div class="glass-card p-10">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+          <div class="glass-card p-10 lg:p-12">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
               <span class="text-primary-400">01</span>
               <span>教育背景</span>
               <div class="flex-1 h-px bg-white/10"></div>
@@ -21,19 +21,19 @@
             <div class="space-y-8">
               <div class="flex gap-6">
                 <div class="flex-shrink-0 w-40 text-right">
-                  <div class="text-lg font-bold text-primary-400">2023 - 至今</div>
+                  <div class="text-lg lg:text-xl font-bold text-primary-400">2023 - 至今</div>
                 </div>
                 <div class="flex-1">
-                  <h4 class="text-2xl font-bold mb-3">计算机科学与技术专业</h4>
-                  <p class="text-lg text-white/70 mb-3">某大学 · 本科</p>
-                  <p class="text-lg text-white/80">GPA: 3.9/4.0，专业排名前10%</p>
+                  <h4 class="text-2xl lg:text-3xl font-bold mb-3">计算机科学与技术专业</h4>
+                  <p class="text-lg lg:text-xl text-white/70 mb-3">某大学 · 本科</p>
+                  <p class="text-lg lg:text-xl text-white/80">GPA: 3.9/4.0，专业排名前10%</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="glass-card p-10">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+          <div class="glass-card p-10 lg:p-12">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
               <span class="text-primary-400">02</span>
               <span>技能详情</span>
               <div class="flex-1 h-px bg-white/10"></div>
@@ -41,8 +41,8 @@
             <div class="space-y-8">
               <div v-for="skill in skills" :key="skill.name">
                 <div class="flex justify-between mb-3">
-                  <span class="text-xl font-medium">{{ skill.name }}</span>
-                  <span class="text-xl text-primary-400">{{ skill.level }}%</span>
+                  <span class="text-xl lg:text-2xl font-medium">{{ skill.name }}</span>
+                  <span class="text-xl lg:text-2xl text-primary-400">{{ skill.level }}%</span>
                 </div>
                 <div class="h-4 bg-white/10 rounded-full overflow-hidden">
                   <div
@@ -54,8 +54,8 @@
             </div>
           </div>
 
-          <div class="glass-card p-10">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+          <div class="glass-card p-10 lg:p-12">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-4">
               <span class="text-primary-400">03</span>
               <span>获奖情况</span>
               <div class="flex-1 h-px bg-white/10"></div>
@@ -68,10 +68,10 @@
               >
                 <div class="flex items-start justify-between">
                   <div>
-                    <h4 class="text-xl font-bold mb-2">{{ award.title }}</h4>
-                    <p class="text-base text-white/70">{{ award.description }}</p>
+                    <h4 class="text-xl lg:text-2xl font-bold mb-2">{{ award.title }}</h4>
+                    <p class="text-base lg:text-lg text-white/70">{{ award.description }}</p>
                   </div>
-                  <span class="text-lg text-primary-400">{{ award.time }}</span>
+                  <span class="text-lg lg:text-xl text-primary-400">{{ award.time }}</span>
                 </div>
               </div>
             </div>
@@ -79,16 +79,16 @@
         </div>
 
         <div class="lg:col-span-4">
-          <div class="glass-card p-8 sticky top-24">
-            <h3 class="text-xl font-bold mb-6">快速链接</h3>
+          <div class="glass-card p-8 lg:p-10 sticky top-28">
+            <h3 class="text-xl lg:text-2xl font-bold mb-6">快速链接</h3>
             <div class="space-y-4">
-              <a href="#" class="block px-6 py-3 rounded-lg hover:bg-white/10 transition-all text-lg">
+              <a href="#" class="block px-6 py-4 rounded-lg hover:bg-white/10 transition-all text-lg lg:text-xl">
                 📄 下载简历
               </a>
-              <a href="#" class="block px-6 py-3 rounded-lg hover:bg-white/10 transition-all text-lg">
+              <a href="#" class="block px-6 py-4 rounded-lg hover:bg-white/10 transition-all text-lg lg:text-xl">
                 💻 GitHub 主页
               </a>
-              <a href="#" class="block px-6 py-3 rounded-lg hover:bg-white/10 transition-all text-lg">
+              <a href="#" class="block px-6 py-4 rounded-lg hover:bg-white/10 transition-all text-lg lg:text-xl">
                 📧 联系我
               </a>
             </div>
