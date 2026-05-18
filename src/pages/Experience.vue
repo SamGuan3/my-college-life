@@ -26,7 +26,7 @@
                 <div class="flex-1">
                   <h4 class="text-2xl lg:text-3xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">数据科学与大数据技术专业</h4>
                   <p class="text-lg lg:text-xl mb-4" style="color: var(--text-muted);">广东技术师范大学 · 本科</p>
-                  <p class="text-lg lg:text-xl" style="color: var(--text-secondary);">GPA: 3.92/4.0，专业排名前10%</p>
+                  <p class="text-lg lg:text-xl" style="color: var(--text-secondary);">GPA: 3.92/5.0，专业排名前10%</p>
                 </div>
               </div>
             </div>

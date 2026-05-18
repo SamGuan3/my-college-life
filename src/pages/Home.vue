@@ -7,7 +7,7 @@
             <div class="text-center mb-12">
               <div class="relative inline-block mb-6">
                 <img
-                  src="/myphoto.jpg"
+                  src="/IDphoto.jpg"
                   alt="关山"
                   class="w-40 h-40 lg:w-44 lg:h-44 rounded-[1rem] object-cover mx-auto shadow-lg"
                 />
@@ -37,25 +37,25 @@
                 </div>
                 <div class="flex items-center gap-4 text-xl lg:text-2xl font-bold" style="color: var(--text-primary);">
                   <span style="color: #3B82F6;">📊</span>
-                  <span>GPA 3.92/4.0</span>
+                  <span>GPA 3.92/5.0</span>
                 </div>
               </div>
             </div>
 
             <div class="border-t pt-8 mt-8" style="border-color: var(--border-color);">
               <div class="flex justify-center gap-6">
-                <a href="#" class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="微信">
+                <button class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="微信" @click="openModal('wechat')">
                   <span class="text-2xl lg:text-3xl">💬</span>
-                </a>
-                <a href="#" class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="邮箱">
+                </button>
+                <button class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="邮箱" @click="openModal('email')">
                   <span class="text-2xl lg:text-3xl">📧</span>
-                </a>
-                <a href="#" class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="QQ">
+                </button>
+                <button class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="QQ" @click="openModal('qq')">
                   <span class="text-2xl lg:text-3xl">🐧</span>
-                </a>
-                  <a href="#" class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="GitHub">
+                </button>
+                <button class="transition-colors" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.opacity = '0.8'" @mouseleave="($event.currentTarget as HTMLElement).style.opacity = '1'" title="GitHub" @click="openModal('github')">
                   <span class="text-2xl lg:text-3xl">🐙</span>
-                </a>
+                </button>
               </div>
             </div>
 
@@ -121,7 +121,7 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
-                <div class="text-4xl lg:text-5xl mb-6">�</div>
+                <div class="text-4xl lg:text-5xl mb-6">🐍</div>
                 <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">Python数据分析</h3>
                 <p class="text-base lg:text-lg" style="color: var(--text-secondary);">Pandas · NumPy · Matplotlib · Seaborn</p>
               </div>
@@ -168,15 +168,57 @@
       </div>
     </div>
   </div>
+
+  <!-- 模态框 -->
+  <div v-if="modalVisible" class="fixed inset-0 flex items-center justify-center z-50">
+    <!-- 背景遮罩 -->
+    <div class="absolute inset-0 bg-black/50" @click="closeModal"></div>
+    <!-- 深色液态玻璃小窗 -->
+    <div class="relative z-10 w-80 lg:w-96 p-8 rounded-[1.25rem]" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
+      <!-- 关闭按钮 -->
+      <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full transition-colors hover:bg-white/10" style="color: var(--text-primary);">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <!-- 模态框内容 -->
+      <div class="text-center">
+        <div class="text-5xl mb-4">{{ currentModalData.icon }}</div>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">{{ currentModalData.title }}</h3>
+        <p class="text-lg" style="color: var(--text-secondary);">{{ currentModalData.content }}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const timeline = [
   { year: '2024', title: '大一', description: '入学广东技术师范大学，开始数据科学学习' },
   { year: '2025', title: '大二', description: '参加蓝桥杯获省级三等奖，布莱德曼程序设计大赛获校级一等奖' },
   { year: '2026', title: '大三', description: '参与阿里云AI应用开发实训，获得优秀学员称号' },
   { year: '2027', title: '大四', description: '备考CFA一级，寻找金融科技方向实习机会' }
 ]
+
+const modalVisible = ref(false)
+const currentModalData = ref({ icon: '', title: '', content: '' })
+
+const contactData = {
+  wechat: { icon: '💬', title: '微信', content: '微信号: guanshan001' },
+  email: { icon: '📧', title: '邮箱', content: 'guanshan@gpnu.edu.cn' },
+  qq: { icon: '🐧', title: 'QQ', content: 'QQ号: 123456789' },
+  github: { icon: '🐙', title: 'GitHub', content: 'github.com/guanshan' }
+}
+
+const openModal = (type: keyof typeof contactData) => {
+  currentModalData.value = contactData[type]
+  modalVisible.value = true
+}
+
+const closeModal = () => {
+  modalVisible.value = false
+}
 
 const scrollToContent = () => {
   const element = document.getElementById('stats')
