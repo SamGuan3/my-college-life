@@ -3,9 +3,9 @@
     <div class="relative z-10">
       <Navbar title="呱鲨の大学" />
 
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component" />
+      <router-view v-slot="{ Component, route }">
+        <transition name="fade">
+          <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </div>

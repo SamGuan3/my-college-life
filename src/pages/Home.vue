@@ -37,7 +37,7 @@
                 </div>
                 <div class="flex items-center gap-4 text-xl lg:text-2xl font-bold" style="color: var(--text-primary);">
                   <span style="color: #3B82F6;">📊</span>
-                  <span>GPA 3.92/5.0</span>
+                  <span>GPA 3.92</span>
                 </div>
               </div>
             </div>
@@ -205,10 +205,10 @@ const modalVisible = ref(false)
 const currentModalData = ref({ icon: '', title: '', content: '' })
 
 const contactData = {
-  wechat: { icon: '💬', title: '微信', content: '微信号: guanshan001' },
-  email: { icon: '📧', title: '邮箱', content: 'guanshan@gpnu.edu.cn' },
-  qq: { icon: '🐧', title: 'QQ', content: 'QQ号: 123456789' },
-  github: { icon: '🐙', title: 'GitHub', content: 'github.com/guanshan' }
+  wechat: { icon: '💬', title: '微信', content: '微信号: Guansss_' },
+  email: { icon: '📧', title: '邮箱', content: '3462343313@qq.com' },
+  qq: { icon: '🐧', title: 'QQ', content: 'QQ号: 3462343313' },
+  github: { icon: '🐙', title: 'GitHub', content: 'github.com/SamGuan3' }
 }
 
 const openModal = (type: keyof typeof contactData) => {
