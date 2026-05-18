@@ -146,13 +146,13 @@
               <div class="flex-1 h-px" style="background-color: var(--border-color); opacity: 0.1"></div>
             </h2>
             <div class="space-y-8">
-              <div v-for="(item, index) in timeline" :key="index" class="flex gap-6">
+              <div v-for="(item, index) in timeline" :key="index" class="flex gap-8">
                 <div class="flex-shrink-0 w-32 text-right">
                   <div class="text-lg lg:text-xl font-bold" style="color: #3B82F6">{{ item.year }}</div>
                 </div>
-                <div class="relative flex-1">
-                  <div class="absolute left-0 top-3 w-4 h-4 rounded-full" style="background-color: #3B82F6"></div>
-                  <div class="pl-10">
+                <div class="relative flex-1 pl-4">
+                  <div class="absolute -left-6 top-3 w-4 h-4 rounded-full border-2 border-white shadow-lg" style="background-color: #3B82F6; z-index: 10;"></div>
+                  <div class="pl-8">
                     <h4 class="text-xl lg:text-2xl font-bold mb-2" style="color: var(--text-primary)">{{ item.title }}</h4>
                     <p class="text-base lg:text-lg" style="color: var(--text-secondary)">{{ item.description }}</p>
                   </div>
