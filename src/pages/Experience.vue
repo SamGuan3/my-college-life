@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen pt-24 pb-12">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="min-h-screen pb-12" style="padding-top: calc(var(--navbar-height) + 1rem);">
+    <div class="mx-auto max-w-[95vw] lg:max-w-7xl px-4 lg:px-6">
       <div class="glass-card p-10 lg:p-12 mb-10">
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient leading-tight">
           我的经验

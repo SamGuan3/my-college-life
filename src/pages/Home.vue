@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen pt-24 pb-12">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="min-h-screen pb-12" style="padding-top: calc(var(--navbar-height) + 1rem);">
+    <div class="mx-auto max-w-[95vw] lg:max-w-7xl px-4 lg:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         <div class="lg:col-span-3 order-2 lg:order-1">
           <div class="glass-card sticky top-28 p-8 lg:p-10" id="profile-card">
@@ -23,16 +23,16 @@
 
             <div class="border-t" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
               <div class="space-y-4 pt-6">
-                <div class="flex items-center gap-3 text-base lg:text-lg" style="color: var(--text-secondary)">
-                  <span style="color: #3B82F6">📍</span>
+                <div class="flex items-center gap-3 text-lg lg:text-xl font-medium" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+                  <span style="color: #60a5fa; text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);">📍</span>
                   <span>广州</span>
                 </div>
-                <div class="flex items-center gap-3 text-base lg:text-lg" style="color: var(--text-secondary)">
-                  <span style="color: #3B82F6">🎓</span>
+                <div class="flex items-center gap-3 text-lg lg:text-xl font-medium" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+                  <span style="color: #60a5fa; text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);">🎓</span>
                   <span>在校大学生</span>
                 </div>
-                <div class="flex items-center gap-3 text-base lg:text-lg" style="color: var(--text-secondary)">
-                  <span style="color: #3B82F6">💡</span>
+                <div class="flex items-center gap-3 text-lg lg:text-xl font-medium" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+                  <span style="color: #60a5fa; text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);">💡</span>
                   <span>学习能力较强</span>
                 </div>
               </div>
@@ -40,23 +40,23 @@
 
             <div class="border-t pt-6 mt-6" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
               <div class="flex justify-center gap-4">
-                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="微信">
+                <a href="#" class="hover:text-white transition-colors" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);" title="微信">
                   <span class="text-2xl lg:text-3xl">💬</span>
                 </a>
-                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="GitHub">
+                <a href="#" class="hover:text-white transition-colors" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);" title="GitHub">
                   <span class="text-2xl lg:text-3xl">🐙</span>
                 </a>
-                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="邮箱">
+                <a href="#" class="hover:text-white transition-colors" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);" title="邮箱">
                   <span class="text-2xl lg:text-3xl">📧</span>
                 </a>
-                <a href="#" class="hover:text-white transition-colors" style="color: var(--text-secondary)" title="QQ">
+                <a href="#" class="hover:text-white transition-colors" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);" title="QQ">
                   <span class="text-2xl lg:text-3xl">📱</span>
                 </a>
               </div>
             </div>
 
             <div class="border-t pt-6 mt-6" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
-              <button class="w-full glass-button py-4 text-lg hover:bg-bg/20">
+              <button class="w-full glass-button py-4 text-lg lg:text-xl font-semibold" style="color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
                 联系我
               </button>
             </div>

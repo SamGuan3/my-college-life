@@ -24,6 +24,7 @@
   --glass-bg: rgba(255, 255, 255, 0.15);
   --glass-bg-hover: rgba(255, 255, 255, 0.22);
   --shadow-color: rgba(0, 0, 0, 0.15);
+  --navbar-height: 5rem;
 }
 
 .theme-light {
