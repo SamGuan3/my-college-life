@@ -1,11 +1,12 @@
 <template>
   <nav
-    class="fixed top-0 left-0 right-0 z-50 border-b border-border/10 bg-bg/20 backdrop-blur-xl"
+    class="fixed top-4 left-0 right-0 z-50 px-2 lg:px-8"
   >
-    <div class="mx-auto max-w-7xl px-6">
-      <div class="flex h-20 items-center justify-between">
+    <div class="container-center">
+      <div class="liquid-glass rounded-full px-6 py-2">
+      <div class="flex h-16 items-center justify-between">
         <div class="flex items-center gap-8">
-          <router-link to="/" class="text-3xl font-bold text-text">
+          <router-link to="/" class="text-2xl font-bold" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">
             {{ title }}
           </router-link>
 
@@ -14,8 +15,11 @@
               v-for="item in navItems"
               :key="item.path"
               :to="item.path"
-              class="nav-link rounded-lg px-6 py-3 text-lg font-medium text-text/80 transition-all hover:bg-bg/10 hover:text-text"
-              :class="{ 'bg-bg/10 text-text': $route.path === item.path }"
+              class="nav-link rounded-full px-4 py-2 text-sm font-medium transition-all"
+              :style="{ color: 'var(--text-secondary)' }"
+              :class="{ 'bg-white/10': $route.path === item.path }"
+              @mouseenter="($event.currentTarget as HTMLElement).style.color = 'var(--text-primary)'"
+              @mouseleave="($event.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'"
             >
               {{ item.label }}
             </router-link>
@@ -24,19 +28,21 @@
 
         <div class="flex items-center gap-4">
           <button
-            class="glass-button rounded-lg p-3 text-text hover:bg-bg/20"
+            class="liquid-glass-button p-2 hover:bg-white/5"
             @click="toggleTheme"
             title="切换主题"
+            :style="{ color: 'var(--text-primary)' }"
           >
-            <span class="text-2xl" v-if="isDark">☀️</span>
-            <span class="text-2xl" v-else>🌙</span>
+            <span class="text-xl" v-if="isDark">🌙</span>
+            <span class="text-xl" v-else>☀️</span>
           </button>
 
           <button
-            class="md:hidden rounded-lg p-3 text-text hover:bg-bg/20"
+            class="md:hidden rounded-full p-2 hover:bg-white/10"
             @click="toggleMobileMenu"
+            :style="{ color: 'var(--text-primary)' }"
           >
-            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -48,20 +54,22 @@
         </div>
       </div>
 
-      <div v-if="mobileMenuOpen" class="md:hidden border-t border-border/10 py-6">
-        <div class="flex flex-col gap-3">
+      <div v-if="mobileMenuOpen" class="md:hidden border-t py-4 mt-2" :style="{ borderColor: 'var(--border-color)' }">
+        <div class="flex flex-col gap-2">
           <router-link
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="rounded-lg px-6 py-4 text-lg font-medium text-text/80 transition-all hover:bg-bg/10 hover:text-text"
-            :class="{ 'bg-bg/10 text-text': $route.path === item.path }"
+            class="rounded-full px-4 py-3 text-sm font-medium transition-all"
+            :style="{ color: 'var(--text-secondary)' }"
+            :class="{ 'bg-white/10': $route.path === item.path }"
             @click="mobileMenuOpen = false"
           >
             {{ item.label }}
           </router-link>
         </div>
       </div>
+    </div>
     </div>
   </nav>
 </template>

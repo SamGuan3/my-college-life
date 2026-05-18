@@ -1,20 +1,20 @@
 <template>
-  <div class="min-h-screen pb-12" style="padding-top: calc(var(--navbar-height) + 1rem);">
-    <div class="mx-auto max-w-[95vw] lg:max-w-7xl px-4 lg:px-6">
-      <div class="glass-card p-10 lg:p-12 mb-10">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gradient">
+  <div class="min-h-screen pb-20 lg:pb-32" style="padding-top: calc(var(--navbar-height) + 2rem);">
+    <div class="container-center">
+      <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-16 mb-12">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight text-gradient" style="font-family: 'Instrument Serif', serif; font-style: italic; letter-spacing: -4px;">
           项目展示
         </h1>
-        <p class="text-2xl lg:text-3xl" style="color: var(--text-secondary)">
+        <p class="text-2xl lg:text-3xl" style="color: var(--text-secondary);">
           这些是我大学期间完成的一些项目
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
         <div
           v-for="project in projects"
           :key="project.id"
-          class="glass-card overflow-hidden rounded-3xl transition-all duration-300 hover:shadow-2xl hover:scale-105 group"
+          class="liquid-glass rounded-[1.25rem] overflow-hidden transition-all duration-300 hover:scale-105 group"
         >
           <div class="relative overflow-hidden">
             <img
@@ -26,34 +26,35 @@
               <span
                 v-for="tag in project.tags"
                 :key="tag"
-                class="glass-button px-4 py-2 text-sm"
+                class="liquid-glass-button px-4 py-2 text-sm"
+                style="color: var(--text-primary);"
               >
                 {{ tag }}
               </span>
             </div>
           </div>
 
-          <div class="p-6 lg:p-8">
-            <h3 class="text-2xl lg:text-3xl font-bold mb-4" style="color: var(--text-primary)">
+          <div class="p-8 lg:p-10">
+            <h3 class="text-2xl lg:text-3xl font-bold mb-5" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">
               {{ project.title }}
             </h3>
-            <p class="text-base lg:text-lg mb-6" style="color: var(--text-secondary)">
+            <p class="text-base lg:text-lg mb-7" style="color: var(--text-secondary);">
               {{ project.description }}
             </p>
 
-            <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex flex-wrap gap-3 mb-7">
               <span
                 v-for="tech in project.techStack"
                 :key="tech"
-                class="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-sm lg:text-base text-purple-300"
+                class="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-sm lg:text-base text-purple-400"
               >
                 {{ tech }}
               </span>
             </div>
 
-            <div class="flex items-center justify-between pt-6 border-t" style="border-color: var(--border-color); border-width: 1px; opacity: 0.1">
-              <span class="text-base lg:text-lg" style="color: var(--text-muted)">{{ project.time }}</span>
-              <a href="#" class="text-base lg:text-lg font-medium" style="color: #3B82F6; hover: color: #60a5fa">
+            <div class="flex items-center justify-between pt-7 border-t" style="border-color: var(--border-color);">
+              <span class="text-base lg:text-lg" style="color: var(--text-muted);">{{ project.time }}</span>
+              <a href="#" class="text-base lg:text-lg font-medium text-blue-500 hover:text-blue-400">
                 查看详情 →
               </a>
             </div>
@@ -61,26 +62,26 @@
         </div>
       </div>
 
-      <div class="mt-12 glass-card p-10 lg:p-12">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-8 text-center" style="color: var(--text-primary)">
+      <div class="mt-16 liquid-glass rounded-[1.25rem] p-12 lg:p-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-center" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">
           项目统计
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div class="text-center">
-            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.total }}</div>
-            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">总项目数</div>
+            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">{{ stats.total }}</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">总项目数</div>
           </div>
           <div class="text-center">
-            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.completed }}</div>
-            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">已完成</div>
+            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">{{ stats.completed }}</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">已完成</div>
           </div>
           <div class="text-center">
-            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.ongoing }}</div>
-            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">进行中</div>
+            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">{{ stats.ongoing }}</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">进行中</div>
           </div>
           <div class="text-center">
-            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-3">{{ stats.technologies }}</div>
-            <div class="text-lg lg:text-xl" style="color: var(--text-secondary)">使用技术</div>
+            <div class="text-6xl lg:text-7xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">{{ stats.technologies }}</div>
+            <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">使用技术</div>
           </div>
         </div>
       </div>
