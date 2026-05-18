@@ -103,64 +103,37 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: '编程之星项目',
-    description: '基于C++的数据结构可视化工具',
-    image: '/bianchengzhixing.jpg',
-    techStack: ['C++', 'Qt', '数据结构'],
-    tags: ['竞赛', '编程'],
-    time: '2023年10月'
-  },
-  {
-    id: 2,
-    title: '智能家居系统',
-    description: '物联网智能家居控制系统',
-    image: '/jidian1.jpg',
-    techStack: ['Python', 'Arduino', 'MQTT'],
-    tags: ['课程设计', '物联网'],
-    time: '2024年3月'
-  },
-  {
-    id: 3,
-    title: '个人作品集网站',
-    description: 'React · Vite 构建的展示网站',
-    image: '/mybackg.jpg',
-    techStack: ['React', 'TypeScript', 'Vite'],
-    tags: ['前端', '个人项目'],
+    title: '蜜雪冰城行业研究报告',
+    description: '撰写蜜雪冰城行业研究报告，包括行业分析、公司治理、财务分析，使用SWOT分析法分析优劣势与机遇风险',
+    image: '/guohu1.jpg',
+    techStack: ['Python', 'Excel', 'SWOT分析'],
+    tags: ['行业研究', '金融分析'],
     time: '2024年6月'
   },
   {
-    id: 4,
-    title: 'AI图像识别应用',
-    description: '基于深度学习的图像分类系统',
-    image: '/cat.jpg',
-    techStack: ['Python', 'PyTorch', 'OpenCV'],
-    tags: ['AI', '机器学习'],
-    time: '2024年9月'
-  },
-  {
-    id: 5,
-    title: '志愿者管理系统',
-    description: '校园志愿者时长管理系统',
+    id: 2,
+    title: '校园快递派送微信小程序',
+    description: '针对校园内快递"时间分散、地点偏远、代取需求高频"的痛点，设计并开发校园快递派送微信小程序',
     image: '/zhiyuanshichang1.png',
-    techStack: ['Vue', 'Node.js', 'MySQL'],
-    tags: ['团队项目', 'Web'],
-    time: '2024年12月'
+    techStack: ['微信小程序', 'Python', '路径规划'],
+    tags: ['挑战杯', '团队项目'],
+    time: '2025年'
   },
   {
-    id: 6,
-    title: '校园导航APP',
-    description: '基于位置服务的校园导航应用',
-    image: '/xiaoyunhui1.jpg',
-    techStack: ['React Native', 'Node.js'],
-    tags: ['移动开发', 'LBS'],
-    time: '2025年3月'
+    id: 3,
+    title: '量化策略回测系统',
+    description: '基于Backtrader框架开发量化策略回测系统，支持多种技术指标和策略优化',
+    image: '/mybackg.jpg',
+    techStack: ['Python', 'Backtrader', 'TA-Lib'],
+    tags: ['量化', '金融科技'],
+    time: '2025年'
   }
 ]
 
 const stats = {
-  total: 15,
-  completed: 12,
+  total: 8,
+  completed: 5,
   ongoing: 3,
-  technologies: 20
+  technologies: 12
 }
 </script>

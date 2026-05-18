@@ -21,12 +21,12 @@
             <div class="space-y-10">
               <div class="flex gap-8">
                 <div class="flex-shrink-0 w-44 text-right">
-                  <div class="text-lg lg:text-xl font-bold" style="color: #3B82F6;">2023 - 至今</div>
+                  <div class="text-lg lg:text-xl font-bold" style="color: #3B82F6;">2024 - 2028</div>
                 </div>
                 <div class="flex-1">
-                  <h4 class="text-2xl lg:text-3xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">计算机科学与技术专业</h4>
-                  <p class="text-lg lg:text-xl mb-4" style="color: var(--text-muted);">某大学 · 本科</p>
-                  <p class="text-lg lg:text-xl" style="color: var(--text-secondary);">GPA: 3.9/4.0，专业排名前10%</p>
+                  <h4 class="text-2xl lg:text-3xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">数据科学与大数据技术专业</h4>
+                  <p class="text-lg lg:text-xl mb-4" style="color: var(--text-muted);">广东技术师范大学 · 本科</p>
+                  <p class="text-lg lg:text-xl" style="color: var(--text-secondary);">GPA: 3.92/4.0，专业排名前10%</p>
                 </div>
               </div>
             </div>
@@ -114,16 +114,20 @@ interface Award {
 }
 
 const skills: Skill[] = [
-  { name: 'C/C++ 编程', level: 90 },
-  { name: 'JavaScript/TypeScript', level: 85 },
-  { name: 'React/Vue', level: 80 },
-  { name: 'Python/AI', level: 75 },
-  { name: '数据结构与算法', level: 85 }
+  { name: 'Python编程', level: 90 },
+  { name: '数据分析(Pandas/Numpy)', level: 85 },
+  { name: '量化策略(Backtrader)', level: 80 },
+  { name: '数据可视化(Matplotlib)', level: 85 },
+  { name: 'SQL数据库', level: 75 },
+  { name: '机器学习算法', level: 70 },
+  { name: '英语(CET-4)', level: 88 }
 ]
 
 const awards: Award[] = [
-  { id: 1, title: '编程之星大赛一等奖', description: '数据结构可视化工具项目', time: '2023年' },
-  { id: 2, title: '优秀学生干部', description: '学生会技术部负责人', time: '2024年' },
-  { id: 3, title: 'ACM竞赛铜奖', description: '省级程序设计竞赛', time: '2024年' }
+  { id: 1, title: '蓝桥杯省级三等奖', description: '程序设计竞赛', time: '2025年5月' },
+  { id: 2, title: '布莱德曼程序设计大赛校级一等奖', description: '程序设计竞赛', time: '2025年3月' },
+  { id: 3, title: '阿里云AI应用开发实训优秀学员', description: 'AI应用开发实训营', time: '2025年5月' },
+  { id: 4, title: '优秀三好学生', description: '学院前10%，德智体美全面发展', time: '2025年' },
+  { id: 5, title: '校运会长跑冠军', description: '校田径运动会', time: '2025年' }
 ]
 </script>

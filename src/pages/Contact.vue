@@ -14,31 +14,31 @@
         <div class="lg:col-span-4">
           <div class="liquid-glass rounded-[1.25rem] p-10 lg:p-12 sticky top-28">
             <div class="text-center mb-10">
-              <img src="/cat.jpg" alt="呱鲨" class="w-40 h-40 lg:w-44 lg:h-44 rounded-[1rem] object-cover mx-auto mb-8" />
-              <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">呱鲨</h2>
-              <p class="text-lg lg:text-xl" style="color: var(--text-muted);">在校大学生 · 技术爱好者</p>
+              <img src="/IDphoto.jpg" alt="关山" class="w-40 h-40 lg:w-44 lg:h-44 rounded-[1rem] object-cover mb-8" style="margin-left: auto; margin-right: auto; display: block;" />
+              <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">关山</h2>
+              <p class="text-lg lg:text-xl" style="color: var(--text-muted);">数据科学与大数据技术 · 大四在读</p>
             </div>
 
             <div class="space-y-7">
               <div class="flex items-center gap-5">
-                <span class="text-3xl lg:text-4xl">💬</span>
+                <span class="text-3xl lg:text-4xl">📞</span>
                 <div>
-                  <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">微信</div>
-                  <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">Guansss__</div>
+                  <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">电话</div>
+                  <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">13352688132</div>
                 </div>
               </div>
               <div class="flex items-center gap-5">
                 <span class="text-3xl lg:text-4xl">📧</span>
                 <div>
                   <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">邮箱</div>
-                  <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">example@email.com</div>
+                  <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">3462343313@qq.com</div>
                 </div>
               </div>
               <div class="flex items-center gap-5">
                 <span class="text-3xl lg:text-4xl">🐙</span>
                 <div>
                   <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">GitHub</div>
-                  <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">@yourusername</div>
+                  <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">@SamGuan3</div>
                 </div>
               </div>
               <div class="flex items-center gap-5">
@@ -155,9 +155,9 @@
                 class="liquid-glass rounded-[1rem] p-8 lg:p-10 text-center transition-all"
                 @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'"
               >
-                <div class="text-5xl lg:text-6xl mb-5">💼</div>
-                <div class="text-xl lg:text-2xl font-medium" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">Gitee</div>
-                <div class="text-sm lg:text-base mt-3" style="color: var(--text-muted);">@yourusername</div>
+                <div class="text-5xl lg:text-6xl mb-5">🅱️</div>
+                <div class="text-xl lg:text-2xl font-medium" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">B站</div>
+                <div class="text-sm lg:text-base mt-3" style="color: var(--text-muted);">_呱呱呱鲨</div>
               </a>
             </div>
           </div>
