@@ -16,11 +16,12 @@
           :key="project.id"
           class="liquid-glass rounded-[1.25rem] overflow-hidden transition-all duration-300 hover:scale-105 group"
         >
-          <div class="relative overflow-hidden">
+          <div class="relative overflow-hidden flex items-center justify-center bg-gray-900/20">
             <img
               :src="project.image"
               :alt="project.title"
-              class="w-full h-56 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+              class="w-full h-56 lg:h-64 object-contain transition-transform duration-300 group-hover:scale-110"
+              style="max-height: 100%;"
             />
             <div class="absolute top-4 right-4 flex gap-2 flex-wrap">
               <span
@@ -105,16 +106,16 @@ const projects: Project[] = [
     id: 1,
     title: '蜜雪冰城行业研究报告',
     description: '撰写蜜雪冰城行业研究报告，包括行业分析、公司治理、财务分析，使用SWOT分析法分析优劣势与机遇风险',
-    image: '/guohu1.jpg',
+    image: '/蜜雪冰城IPO.png',
     techStack: ['Python', 'Excel', 'SWOT分析'],
     tags: ['行业研究', '金融分析'],
-    time: '2024年6月'
+    time: '2025年6月'
   },
   {
     id: 2,
     title: '校园快递派送微信小程序',
     description: '针对校园内快递"时间分散、地点偏远、代取需求高频"的痛点，设计并开发校园快递派送微信小程序',
-    image: '/zhiyuanshichang1.png',
+    image: '/挑战杯即刻递.png',
     techStack: ['微信小程序', 'Python', '路径规划'],
     tags: ['挑战杯', '团队项目'],
     time: '2025年'
@@ -123,7 +124,7 @@ const projects: Project[] = [
     id: 3,
     title: '量化策略回测系统',
     description: '基于Backtrader框架开发量化策略回测系统，支持多种技术指标和策略优化',
-    image: '/mybackg.jpg',
+    image: '/即刻递小程序展示.png',
     techStack: ['Python', 'Backtrader', 'TA-Lib'],
     tags: ['量化', '金融科技'],
     time: '2025年'
