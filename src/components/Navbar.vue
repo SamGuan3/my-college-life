@@ -1,6 +1,7 @@
 <template>
   <nav
-    class="fixed top-4 left-0 right-0 z-50 px-2 lg:px-8"
+    class="fixed top-0 left-0 right-0 z-50 px-2 lg:px-8 pt-4 md:pt-4"
+    style="background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);"
   >
     <div class="container-center">
       <div class="liquid-glass rounded-full px-6 py-2">
@@ -92,6 +93,10 @@ const navItems: NavItem[] = [
 ]
 
 const mobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
 
 const themeContext = inject<{
   isDark: { value: boolean }

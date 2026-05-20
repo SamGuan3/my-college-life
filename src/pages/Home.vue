@@ -168,8 +168,8 @@
 
   <!-- 联系弹窗 -->
   <div v-if="contactModalVisible" class="fixed inset-0 flex items-center justify-center z-50">
-    <div class="absolute inset-0 bg-black/50" @click="closeContactModal"></div>
-    <div class="relative z-10 w-full max-w-2xl mx-4 p-8 lg:p-12 rounded-[1.25rem] liquid-glass">
+    <div class="absolute inset-0 bg-black/60" @click="closeContactModal"></div>
+    <div class="relative z-10 w-full max-w-2xl mx-4 p-8 lg:p-12 rounded-[1.25rem]" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
       <button @click="closeContactModal" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full transition-colors hover:bg-white/10" style="color: var(--text-primary);">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -210,34 +210,37 @@
             </div>
           </div>
         </div>
-        <div class="liquid-glass rounded-[1rem] p-6">
+        <div class="rounded-[1rem] p-6" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
           <h3 class="text-xl lg:text-2xl font-bold mb-6" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">给我留言</h3>
           <form @submit.prevent="submitContactForm" class="space-y-5">
             <input
               v-model="contactForm.name"
               type="text"
               placeholder="您的姓名"
-              class="liquid-glass-input w-full py-4 px-6 text-base"
+              class="w-full py-4 px-6 text-base rounded-lg"
+              style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
               required
             />
             <input
               v-model="contactForm.email"
               type="email"
               placeholder="您的邮箱"
-              class="liquid-glass-input w-full py-4 px-6 text-base"
+              class="w-full py-4 px-6 text-base rounded-lg"
+              style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
               required
             />
             <textarea
               v-model="contactForm.message"
               rows="4"
               placeholder="留言内容..."
-              class="liquid-glass-input w-full py-4 px-6 text-base resize-none"
+              class="w-full py-4 px-6 text-base rounded-lg resize-none"
+              style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
               required
             ></textarea>
             <button
               type="submit"
-              class="w-full liquid-glass-button py-4 text-base lg:text-lg"
-              style="color: var(--text-primary);"
+              class="w-full py-4 text-base lg:text-lg rounded-lg font-medium transition-all hover:bg-white/10"
+              style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-primary);"
             >
               发送留言
             </button>

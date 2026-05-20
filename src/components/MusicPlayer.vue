@@ -7,7 +7,6 @@
       style="background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);"
     >
       <span class="text-3xl" v-if="isPlaying">🎵</span>
-      <span class="text-3xl" v-else>🔇</span>
     </button>
 
     <audio
