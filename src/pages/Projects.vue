@@ -16,12 +16,11 @@
           :key="project.id"
           class="liquid-glass rounded-[1.25rem] overflow-hidden transition-all duration-300 hover:scale-105 group"
         >
-          <div class="relative overflow-hidden flex items-center justify-center bg-gray-900/20">
+          <div class="relative overflow-hidden bg-gray-900/20" style="aspect-ratio: 4/3;">
             <img
               :src="project.image"
               :alt="project.title"
-              class="w-full h-56 lg:h-64 object-contain transition-transform duration-300 group-hover:scale-110"
-              style="max-height: 100%;"
+              class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <div class="absolute top-4 right-4 flex gap-2 flex-wrap">
               <span

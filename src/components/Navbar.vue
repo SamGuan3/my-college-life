@@ -88,9 +88,7 @@ defineProps<{
 
 const navItems: NavItem[] = [
   { label: '主页', path: '/' },
-  { label: '项目', path: '/projects' },
-  { label: '经验', path: '/experience' },
-  { label: '联系', path: '/contact' }
+  { label: '经历', path: '/experience' }
 ]
 
 const mobileMenuOpen = ref(false)

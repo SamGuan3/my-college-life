@@ -11,9 +11,6 @@
                   alt="关山"
                   class="w-40 h-40 lg:w-44 lg:h-44 rounded-[1rem] object-cover mx-auto shadow-lg"
                 />
-                <span class="absolute -top-3 -right-3 bg-green-500 text-white text-sm px-3 py-1 rounded-full">
-                  在学
-                </span>
               </div>
               <h2 class="text-3xl lg:text-4xl font-bold mb-3" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">
                 关山
@@ -60,7 +57,7 @@
             </div>
 
             <div class="border-t pt-8 mt-8" style="border-color: var(--border-color);">
-              <button class="w-full liquid-glass-button py-4 text-lg lg:text-xl font-semibold" style="color: var(--text-primary);">
+              <button class="w-full liquid-glass-button py-4 text-lg lg:text-xl font-semibold" style="color: var(--text-primary);" @click="openContactModal">
                 联系我
               </button>
             </div>
@@ -105,7 +102,7 @@
             </h2>
             <div class="space-y-6">
               <p class="text-lg lg:text-xl leading-relaxed" style="color: var(--text-secondary);">
-                你好！我是关山，广东技术师范大学数据科学与大数据技术专业的一名学生。专业排名前10%，正在备考CFA特许金融分析师。
+                你好！我是关山，广东技术师范大学数据科学与大数据技术专业的一名学生。综合测评专业排名前1%，正在备考CFA特许金融分析师。
               </p>
               <p class="text-lg lg:text-xl leading-relaxed" style="color: var(--text-secondary);">
                 我热爱数据科学和金融科技领域，擅长Python数据分析、量化策略开发，希望能在金融数据分析领域实现自己的价值。
@@ -169,6 +166,90 @@
     </div>
   </div>
 
+  <!-- 联系弹窗 -->
+  <div v-if="contactModalVisible" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="absolute inset-0 bg-black/50" @click="closeContactModal"></div>
+    <div class="relative z-10 w-full max-w-2xl mx-4 p-8 lg:p-12 rounded-[1.25rem] liquid-glass">
+      <button @click="closeContactModal" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full transition-colors hover:bg-white/10" style="color: var(--text-primary);">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <div class="text-center mb-10">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">联系我</h2>
+        <p class="text-lg lg:text-xl" style="color: var(--text-secondary);">如果您有任何问题或合作意向，欢迎联系我</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="space-y-6">
+          <div class="flex items-center gap-5">
+            <span class="text-3xl lg:text-4xl">📞</span>
+            <div>
+              <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">电话</div>
+              <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">13352688132</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+            <span class="text-3xl lg:text-4xl">📧</span>
+            <div>
+              <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">邮箱</div>
+              <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">3462343313@qq.com</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+            <span class="text-3xl lg:text-4xl">💬</span>
+            <div>
+              <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">微信</div>
+              <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">Guansss_</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+            <span class="text-3xl lg:text-4xl">📍</span>
+            <div>
+              <div class="text-sm lg:text-base mb-2" style="color: var(--text-muted);">位置</div>
+              <div class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">广东 广州</div>
+            </div>
+          </div>
+        </div>
+        <div class="liquid-glass rounded-[1rem] p-6">
+          <h3 class="text-xl lg:text-2xl font-bold mb-6" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">给我留言</h3>
+          <form @submit.prevent="submitContactForm" class="space-y-5">
+            <input
+              v-model="contactForm.name"
+              type="text"
+              placeholder="您的姓名"
+              class="liquid-glass-input w-full py-4 px-6 text-base"
+              required
+            />
+            <input
+              v-model="contactForm.email"
+              type="email"
+              placeholder="您的邮箱"
+              class="liquid-glass-input w-full py-4 px-6 text-base"
+              required
+            />
+            <textarea
+              v-model="contactForm.message"
+              rows="4"
+              placeholder="留言内容..."
+              class="liquid-glass-input w-full py-4 px-6 text-base resize-none"
+              required
+            ></textarea>
+            <button
+              type="submit"
+              class="w-full liquid-glass-button py-4 text-base lg:text-lg"
+              style="color: var(--text-primary);"
+            >
+              发送留言
+            </button>
+          </form>
+          <div v-if="contactSubmitted" class="mt-5 p-4 bg-green-500/20 border border-green-400/30 rounded-lg">
+            <p class="text-green-600 text-center">留言已发送！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 模态框 -->
   <div v-if="modalVisible" class="fixed inset-0 flex items-center justify-center z-50">
     <!-- 背景遮罩 -->
@@ -203,6 +284,15 @@ const timeline = [
 
 const modalVisible = ref(false)
 const currentModalData = ref({ icon: '', title: '', content: '' })
+const contactModalVisible = ref(false)
+
+const contactForm = ref({
+  name: '',
+  email: '',
+  message: ''
+})
+
+const contactSubmitted = ref(false)
 
 const contactData = {
   wechat: { icon: '💬', title: '微信', content: '微信号: Guansss_' },
@@ -218,6 +308,23 @@ const openModal = (type: keyof typeof contactData) => {
 
 const closeModal = () => {
   modalVisible.value = false
+}
+
+const openContactModal = () => {
+  contactModalVisible.value = true
+}
+
+const closeContactModal = () => {
+  contactModalVisible.value = false
+}
+
+const submitContactForm = () => {
+  console.log('Contact form submitted:', contactForm.value)
+  contactSubmitted.value = true
+  setTimeout(() => {
+    contactSubmitted.value = false
+    contactForm.value = { name: '', email: '', message: '' }
+  }, 3000)
 }
 
 const scrollToContent = () => {

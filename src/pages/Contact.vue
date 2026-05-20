@@ -121,45 +121,8 @@
           </div>
 
           <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-14 mt-12">
-            <h2 class="text-3xl lg:text-4xl font-bold mb-10" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">社交媒体</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <a
-                href="#"
-                class="liquid-glass rounded-[1rem] p-8 lg:p-10 text-center transition-all"
-                @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'"
-              >
-                <div class="text-5xl lg:text-6xl mb-5">📺</div>
-                <div class="text-xl lg:text-2xl font-medium" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">抖音</div>
-                <div class="text-sm lg:text-base mt-3" style="color: var(--text-muted);">@G3462343313</div>
-              </a>
-              <a
-                href="#"
-                class="liquid-glass rounded-[1rem] p-8 lg:p-10 text-center transition-all"
-                @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'"
-              >
-                <div class="text-5xl lg:text-6xl mb-5">🎬</div>
-                <div class="text-xl lg:text-2xl font-medium" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">B站</div>
-                <div class="text-sm lg:text-base mt-3" style="color: var(--text-muted);">@_呱呱呱鲨</div>
-              </a>
-              <a
-                href="#"
-                class="liquid-glass rounded-[1rem] p-8 lg:p-10 text-center transition-all"
-                @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'"
-              >
-                <div class="text-5xl lg:text-6xl mb-5">🐙</div>
-                <div class="text-xl lg:text-2xl font-medium" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">GitHub</div>
-                <div class="text-sm lg:text-base mt-3" style="color: var(--text-muted);">@yourusername</div>
-              </a>
-              <a
-                href="#"
-                class="liquid-glass rounded-[1rem] p-8 lg:p-10 text-center transition-all"
-                @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'"
-              >
-                <div class="text-5xl lg:text-6xl mb-5">🅱️</div>
-                <div class="text-xl lg:text-2xl font-medium" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">B站</div>
-                <div class="text-sm lg:text-base mt-3" style="color: var(--text-muted);">_呱呱呱鲨</div>
-              </a>
-            </div>
+
+
           </div>
         </div>
       </div>
