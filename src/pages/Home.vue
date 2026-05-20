@@ -58,7 +58,7 @@
 
             <div class="border-t pt-8 mt-8" style="border-color: var(--border-color);">
               <button class="w-full liquid-glass-button py-4 text-lg lg:text-xl font-semibold" style="color: var(--text-primary);" @click="openContactModal">
-                联系我
+                点击此联系我
               </button>
             </div>
           </div>
@@ -66,11 +66,11 @@
 
         <div class="lg:col-span-9 order-1 lg:order-2 space-y-12 lg:space-y-16">
           <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-16">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.8] text-gradient" style="font-family: 'Instrument Serif', serif; font-style: italic; letter-spacing: -4px;">
-              关山的个人主页
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.2] text-gradient" style="font-family: 'Instrument Serif', serif; font-style: italic; letter-spacing: -4px;">
+              你好！我是关山，呱鲨是我的别称
             </h1>
             <p class="text-2xl lg:text-3xl mb-10" style="color: var(--text-secondary);">
-              数据科学与大数据技术专业 · 追求卓越
+             
             </p>
             <button @click="scrollToContent" class="liquid-glass-strong-button px-10 py-5 text-lg" style="color: var(--text-primary);">
               了解一下 →
@@ -130,7 +130,7 @@
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
                 <div class="text-4xl lg:text-5xl mb-6">🗄️</div>
                 <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">数据库与工具</h3>
-                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">SQL · Choice数据库 · 同花顺FinD</p>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">SQL · Choice数据库 · MongoDB</p>
               </div>
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
                 <div class="text-4xl lg:text-5xl mb-6">🧮</div>
@@ -279,10 +279,10 @@
 import { ref } from 'vue'
 
 const timeline = [
-  { year: '2024', title: '大一', description: '入学广东技术师范大学，开始数据科学学习' },
+  { year: '2024', title: '大一', description: '入学广东技术师范大学，参与阿里云AI应用开发实训，获得优秀学员称号' },
   { year: '2025', title: '大二', description: '参加蓝桥杯获省级三等奖，布莱德曼程序设计大赛获校级一等奖' },
-  { year: '2026', title: '大三', description: '参与阿里云AI应用开发实训，获得优秀学员称号' },
-  { year: '2027', title: '大四', description: '备考CFA一级，寻找金融科技方向实习机会' }
+  { year: '2026', title: '大三', description: '备考CFA一级' },
+  { year: '2027', title: '大四', description: '寻找金融科技方向实习机会' }
 ]
 
 const modalVisible = ref(false)

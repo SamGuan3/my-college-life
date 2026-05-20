@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen" :class="themeClass">
     <div class="relative z-10">
-      <Navbar title="呱鲨の大学" />
+      <Navbar title="呱鲨的成长历程" />
 
       <router-view v-slot="{ Component, route }">
         <transition name="fade">

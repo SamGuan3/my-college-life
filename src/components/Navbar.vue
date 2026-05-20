@@ -54,14 +54,17 @@
           </button>
         </div>
       </div>
+      </div>
+    </div>
 
-      <div v-if="mobileMenuOpen" class="md:hidden border-t py-4 mt-2" :style="{ borderColor: 'var(--border-color)' }">
+    <div v-if="mobileMenuOpen" class="md:hidden mt-4">
+      <div class="liquid-glass rounded-[1.25rem] p-4">
         <div class="flex flex-col gap-2">
           <router-link
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="rounded-full px-4 py-3 text-sm font-medium transition-all"
+            class="rounded-full px-6 py-4 text-lg font-medium transition-all"
             :style="{ color: 'var(--text-secondary)' }"
             :class="{ 'bg-white/10': $route.path === item.path }"
             @click="mobileMenuOpen = false"
@@ -70,7 +73,6 @@
           </router-link>
         </div>
       </div>
-    </div>
     </div>
   </nav>
 </template>
