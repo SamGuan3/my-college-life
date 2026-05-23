@@ -229,6 +229,14 @@
               style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
               required
             />
+            <input
+              v-model="contactForm.subject"
+              type="text"
+              placeholder="留言主题"
+              class="w-full py-4 px-6 text-base rounded-lg"
+              style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
+              required
+            />
             <textarea
               v-model="contactForm.message"
               rows="4"
@@ -239,15 +247,19 @@
             ></textarea>
             <button
               type="submit"
-              class="w-full py-4 text-base lg:text-lg rounded-lg font-medium transition-all hover:bg-white/10"
+              :disabled="isContactLoading"
+              class="w-full py-4 text-base lg:text-lg rounded-lg font-medium transition-all hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
               style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-primary);"
             >
-              发送留言
+              {{ isContactLoading ? '发送中...' : '发送留言' }}
             </button>
           </form>
           <div v-if="contactSubmitted" class="mt-5 p-4 bg-green-500/20 border border-green-400/30 rounded-lg">
-            <p class="text-green-600 text-center">留言已发送！</p>
-          </div>
+          <p class="text-green-600 text-center">留言已发送！</p>
+        </div>
+        <div v-if="contactErrorMessage" class="mt-5 p-4 bg-red-500/20 border border-red-400/30 rounded-lg">
+          <p class="text-red-600 text-center">{{ contactErrorMessage }}</p>
+        </div>
         </div>
       </div>
     </div>
@@ -292,10 +304,13 @@ const contactModalVisible = ref(false)
 const contactForm = ref({
   name: '',
   email: '',
+  subject: '',
   message: ''
 })
 
 const contactSubmitted = ref(false)
+const isContactLoading = ref(false)
+const contactErrorMessage = ref('')
 
 const contactData = {
   wechat: { icon: '💬', title: '微信', content: '微信号: Guansss_' },
@@ -321,13 +336,35 @@ const closeContactModal = () => {
   contactModalVisible.value = false
 }
 
-const submitContactForm = () => {
-  console.log('Contact form submitted:', contactForm.value)
-  contactSubmitted.value = true
-  setTimeout(() => {
-    contactSubmitted.value = false
-    contactForm.value = { name: '', email: '', message: '' }
-  }, 3000)
+const submitContactForm = async () => {
+  isContactLoading.value = true
+  contactErrorMessage.value = ''
+  
+  try {
+    const response = await fetch('http://localhost:3001/api/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(contactForm.value)
+    })
+    
+    const result = await response.json()
+    
+    if (result.success) {
+      contactSubmitted.value = true
+      contactForm.value = { name: '', email: '', subject: '', message: '' }
+      setTimeout(() => {
+        contactSubmitted.value = false
+      }, 3000)
+    } else {
+      contactErrorMessage.value = result.message || '提交失败'
+    }
+  } catch (error) {
+    contactErrorMessage.value = '网络错误，请稍后重试'
+  } finally {
+    isContactLoading.value = false
+  }
 }
 
 const scrollToContent = () => {

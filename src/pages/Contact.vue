@@ -108,21 +108,56 @@
 
               <button
                 type="submit"
-                class="w-full liquid-glass-button py-5 text-lg lg:text-xl"
+                :disabled="isLoading"
+                class="w-full liquid-glass-button py-5 text-lg lg:text-xl disabled:opacity-50 disabled:cursor-not-allowed"
                 style="color: var(--text-primary);"
               >
-                发送留言
+                {{ isLoading ? '发送中...' : '发送留言' }}
               </button>
             </form>
 
             <div v-if="submitted" class="mt-10 p-7 bg-green-500/20 border border-green-400/30 rounded-lg">
               <p class="text-green-600 text-lg lg:text-xl text-center">留言已发送，感谢您的反馈！</p>
             </div>
+
+            <div v-if="errorMessage" class="mt-10 p-7 bg-red-500/20 border border-red-400/30 rounded-lg">
+              <p class="text-red-600 text-lg lg:text-xl text-center">{{ errorMessage }}</p>
+            </div>
           </div>
 
           <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-14 mt-12">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-10" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">留言列表</h2>
+            
+            <div v-if="messagesLoading" class="flex justify-center items-center py-12">
+              <div class="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+            </div>
 
+            <div v-else-if="messages.length === 0" class="text-center py-12">
+              <p class="text-xl lg:text-2xl" style="color: var(--text-secondary);">暂无留言，快来发表第一条吧！</p>
+            </div>
 
+            <div v-else class="space-y-6">
+              <div 
+                v-for="message in messages" 
+                :key="message._id"
+                class="p-6 rounded-lg"
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;">
+                      {{ message.name.charAt(0) }}
+                    </div>
+                    <div>
+                      <h4 class="text-lg lg:text-xl font-medium" style="color: var(--text-primary);">{{ message.name }}</h4>
+                      <p class="text-sm" style="color: var(--text-muted);">{{ formatDate(message.createdAt) }}</p>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="text-base lg:text-lg font-medium mb-2" style="color: var(--text-primary);">{{ message.subject }}</h5>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">{{ message.message }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -131,7 +166,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+
+interface Message {
+  _id: string
+  name: string
+  email: string
+  subject: string
+  message: string
+  createdAt: string
+}
 
 const form = ref({
   name: '',
@@ -140,14 +184,75 @@ const form = ref({
   message: ''
 })
 
+const messages = ref<Message[]>([])
+const isLoading = ref(false)
+const messagesLoading = ref(false)
 const submitted = ref(false)
+const errorMessage = ref('')
 
-const submitForm = () => {
-  console.log('Form submitted:', form.value)
-  submitted.value = true
-  setTimeout(() => {
-    submitted.value = false
-    form.value = { name: '', email: '', subject: '', message: '' }
-  }, 3000)
+const API_URL = 'http://localhost:3001/api/messages'
+
+const submitForm = async () => {
+  isLoading.value = true
+  errorMessage.value = ''
+  
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form.value)
+    })
+    
+    const result = await response.json()
+    
+    if (result.success) {
+      submitted.value = true
+      form.value = { name: '', email: '', subject: '', message: '' }
+      await fetchMessages()
+      setTimeout(() => {
+        submitted.value = false
+      }, 3000)
+    } else {
+      errorMessage.value = result.message || '提交失败'
+    }
+  } catch (error) {
+    errorMessage.value = '网络错误，请稍后重试'
+  } finally {
+    isLoading.value = false
+  }
 }
+
+const fetchMessages = async () => {
+  messagesLoading.value = true
+  
+  try {
+    const response = await fetch(API_URL)
+    const result = await response.json()
+    
+    if (result.success) {
+      messages.value = result.data
+    }
+  } catch (error) {
+    console.error('获取留言列表失败:', error)
+  } finally {
+    messagesLoading.value = false
+  }
+}
+
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString)
+  return date.toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+onMounted(() => {
+  fetchMessages()
+})
 </script>
