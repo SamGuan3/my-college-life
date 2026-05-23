@@ -190,7 +190,7 @@ const messagesLoading = ref(false)
 const submitted = ref(false)
 const errorMessage = ref('')
 
-const API_URL = 'http://localhost:3001/api/messages'
+const API_URL = '/api/messages'
 
 const submitForm = async () => {
   isLoading.value = true
