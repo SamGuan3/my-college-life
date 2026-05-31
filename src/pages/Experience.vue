@@ -26,7 +26,12 @@
                 <div class="flex-1">
                   <h4 class="text-2xl lg:text-3xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">数据科学与大数据技术专业</h4>
                   <p class="text-lg lg:text-xl mb-4" style="color: var(--text-muted);">广东技术师范大学 · 本科</p>
-                  <p class="text-lg lg:text-xl" style="color: var(--text-secondary);">GPA: 3.92/5.0，综合测评专业排名前1%</p>
+                  <p class="text-lg lg:text-xl mb-4" style="color: var(--text-secondary);">GPA: 3.92/5.0，综合测评专业排名前1%</p>
+                  <div class="flex flex-wrap gap-2 mt-4">
+                    <span v-for="course in ['Python数据挖掘', '概率论与数理统计', '大数据技术与应用', 'MySQL', 'NoSQL', 'MongoDB', '数学建模']" :key="course" class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">
+                      {{ course }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -38,6 +43,12 @@
               <span style="color: var(--text-primary);">技能详情</span>
               <div class="flex-1 h-px" style="background-color: var(--border-color);"></div>
             </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-10">
+              <div v-for="skill in skillCategories" :key="skill.title" class="liquid-glass rounded-[1rem] p-8">
+                <h4 class="text-xl font-bold mb-4 text-blue-400">{{ skill.title }}</h4>
+                <p class="text-base leading-relaxed" style="color: var(--text-secondary);">{{ skill.content }}</p>
+              </div>
+            </div>
             <div class="space-y-10">
               <div v-for="skill in skills" :key="skill.name">
                 <div class="flex justify-between mb-4">
@@ -199,50 +210,56 @@ interface Project {
 }
 
 const skills: Skill[] = [
-  { name: 'Python编程', level: 90 },
-  { name: '数据分析(Pandas/Numpy)', level: 85 },
-  { name: '量化策略(Backtrader)', level: 80 },
-  { name: '数据可视化(Matplotlib)', level: 85 },
-  { name: 'SQL数据库', level: 75 },
-  { name: '机器学习算法', level: 70 },
-  { name: '英语(CET-6)', level: 80 }
+  { name: 'Python数据分析', level: 90 },
+  { name: 'SQL数据库(MySQL/NoSQL)', level: 85 },
+  { name: '量化策略(Backtrader)', level: 85 },
+  { name: '机器学习与建模', level: 80 },
+  { name: '英语(CET-6 562分)', level: 85 },
+  { name: '数据可视化(PowerBI)', level: 75 }
+]
+
+const skillCategories = [
+  { title: '数据处理 | SQL', content: '熟练掌握MySQL、NoSQL等，精通多表连接、聚合函数等复杂语法，可完成海量数据提取、清洗、预处理全流程工作。' },
+  { title: '数据分析 | Python', content: '基础扎实，熟练使用Pandas、NumPy完成数据清洗、数据转换、特征工程，具备完整的数据预处理实战能力。' },
+  { title: '机器学习 | 建模', content: '掌握回归、聚类等经典机器学习算法原理，具备从数据集构建、特征筛选到模型训练、结果分析的全流程项目经验。' },
+  { title: '工具与综合', content: '熟悉PowerBI可视化；熟练运用Cursor等AI Agent工具辅助编程；掌握Java、C语言，适配数据挖掘与量化分析场景。' }
 ]
 
 const awards: Award[] = [
-  { id: 1, title: '蓝桥杯省级三等奖', description: '程序设计竞赛', time: '2025年5月' },
-  { id: 2, title: '布莱德曼程序设计大赛校级一等奖', description: '程序设计竞赛', time: '2025年3月' },
-  { id: 3, title: '阿里云AI应用开发实训优秀学员', description: 'AI应用开发实训营', time: '2025年5月' },
-  { id: 4, title: '校优秀三好学生', description: '综合测评学院前1%，德智体美全面发展', time: '2025年' },
-  { id: 5, title: '校运会长跑冠军', description: '校田径运动会', time: '2025年' }
+  { id: 1, title: '第十五届挑战杯 校级一等奖', description: '大学生课外学术科技作品竞赛', time: '2025年10月' },
+  { id: 2, title: '蓝桥杯全国软件大赛 省级三等奖', description: 'C/C++程序设计竞赛', time: '2025年5月' },
+  { id: 3, title: '阿里巴巴“云工开物”AI实训 优秀学员', description: 'AI应用开发实训营', time: '2025年5月' },
+  { id: 4, title: '布莱德曼杯建模大赛 金奖', description: '数学建模竞赛', time: '2025年3月' },
+  { id: 5, title: '校优秀三好学生', description: '综合测评专业排名前1%，德智体美全面发展', time: '2025年' }
 ]
 
 const projects: Project[] = [
   {
     id: 1,
-    title: '蜜雪冰城行业研究报告',
-    description: '撰写蜜雪冰城行业研究报告，包括行业分析、公司治理、财务分析，使用SWOT分析法分析优劣势与机遇风险',
-    image: '/蜜雪冰城IPO.png',
-    techStack: ['Python', 'Excel', 'SWOT分析'],
-    tags: ['行业研究', '金融分析'],
-    time: '2025年6月'
+    title: '全流程数据挖掘与机器学习研究',
+    description: '独立完成全流程数据挖掘工作。通过爬虫采集近10万份职业教育数据，进行文本清洗与量化转换，构建回归模型开展量化分析。',
+    image: '/阿里云AI应用开发与数据实训.jpg',
+    techStack: ['Python', '爬虫', '回归分析', 'Cursor'],
+    tags: ['数据挖掘', '机器学习'],
+    time: '2026年1月 - 4月'
   },
   {
     id: 2,
-    title: '校园快递派送微信小程序',
-    description: '针对校园内快递"时间分散、地点偏远、代取需求高频"的痛点，设计并开发校园快递派送微信小程序',
+    title: '校园快递派送小程序 (挑战杯一等奖)',
+    description: '负责数据库搭建与数据运营分析，运用MySQL、NoSQL实现业务数据结构化管理，通过Python分析用户订单行为，支撑产品迭代。',
     image: '/挑战杯即刻递.png',
-    techStack: ['微信小程序', 'Python', '路径规划'],
+    techStack: ['微信小程序', 'MySQL', 'NoSQL', 'Python'],
     tags: ['挑战杯', '团队项目'],
-    time: '2025年'
+    time: '2025年6月 - 10月'
   },
   {
     id: 3,
-    title: '量化策略回测系统',
-    description: '基于Backtrader框架开发量化策略回测系统，支持多种技术指标和策略优化',
-    image: '/即刻递小程序展示.png',
-    techStack: ['Python', 'Backtrader', 'TA-Lib'],
+    title: '金融数据分析与证券投资实战',
+    description: '结合CFA知识开展行业估值与投研分析。团队合作完成蜜雪冰城、立讯精密等估值分析，在国泰君安证券实盘大赛中斩获优胜奖。',
+    image: '/蜜雪冰城IPO.png',
+    techStack: ['CFA知识', '量化分析', '行业调研'],
     tags: ['量化', '金融科技'],
-    time: '2025年'
+    time: '2025年3月 - 12月'
   }
 ]
 </script>

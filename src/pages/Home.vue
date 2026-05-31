@@ -80,16 +80,16 @@
           <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-16" id="stats">
             <div class="grid grid-cols-3 gap-12 lg:gap-16">
               <div class="text-center">
-                <div class="text-5xl lg:text-6xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">3</div>
-                <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">项目经历</div>
+                <div class="text-5xl lg:text-6xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">4</div>
+                <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">核心项目</div>
               </div>
               <div class="text-center">
                 <div class="text-5xl lg:text-6xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">3.92</div>
                 <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">GPA绩点</div>
               </div>
               <div class="text-center">
-                <div class="text-5xl lg:text-6xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">5</div>
-                <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">获奖情况</div>
+                <div class="text-5xl lg:text-6xl font-bold text-gradient mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">6</div>
+                <div class="text-lg lg:text-xl" style="color: var(--text-secondary);">获奖荣誉</div>
               </div>
             </div>
           </div>
@@ -105,7 +105,10 @@
                 你好！我是关山，广东技术师范大学数据科学与大数据技术专业的一名学生。综合测评专业排名前1%，正在备考CFA特许金融分析师。
               </p>
               <p class="text-lg lg:text-xl leading-relaxed" style="color: var(--text-secondary);">
-                我热爱数据科学和金融科技领域，擅长Python数据分析、量化策略开发，希望能在金融数据分析领域实现自己的价值。
+                我热爱数据科学和金融科技领域，擅长Python数据挖掘、SQL数据库、量化策略开发。我具备清晰的逻辑思维，擅长拆解复杂的业务与数据问题，并保持对新技术（如AI Agent）的高度好奇心。
+              </p>
+              <p class="text-lg lg:text-xl leading-relaxed" style="color: var(--text-secondary);">
+                我追求结果导向，具备良好的团队协作能力，希望能在金融数据分析与量化建模领域实现自己的价值。
               </p>
             </div>
           </div>
@@ -113,29 +116,29 @@
           <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-16" id="skills">
             <h2 class="text-3xl lg:text-4xl font-bold mb-10 flex items-center gap-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">
               <span style="color: #3B82F6;">02</span>
-              <span style="color: var(--text-primary);">我的能力</span>
+              <span style="color: var(--text-primary);">核心优势</span>
               <div class="flex-1 h-px" style="background-color: var(--border-color);"></div>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
-                <div class="text-4xl lg:text-5xl mb-6">🐍</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">Python数据分析</h3>
-                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">Pandas · NumPy · Matplotlib · Seaborn</p>
+                <div class="text-4xl lg:text-5xl mb-6">🔍</div>
+                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">数据挖掘与分析</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">Python · Pandas · NumPy · 特征工程</p>
               </div>
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
-                <div class="text-4xl lg:text-5xl mb-6">📈</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">量化策略开发</h3>
-                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">Backtrader · TA-Lib · 策略回测</p>
+                <div class="text-4xl lg:text-5xl mb-6">📉</div>
+                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">量化建模</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">回归分析 · 聚类 · 量化策略开发</p>
               </div>
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
                 <div class="text-4xl lg:text-5xl mb-6">🗄️</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">数据库与工具</h3>
-                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">SQL · Choice数据库 · MongoDB</p>
+                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">数据库技术</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">MySQL · NoSQL · MongoDB · 数据清洗</p>
               </div>
               <div class="liquid-glass rounded-[1rem] p-10 transition-all" style="color: var(--text-primary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.03)'">
-                <div class="text-4xl lg:text-5xl mb-6">🧮</div>
-                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">机器学习算法</h3>
-                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">回归分析 · K-means聚类 · 风控预测</p>
+                <div class="text-4xl lg:text-5xl mb-6">🤖</div>
+                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">AI 辅助编程</h3>
+                <p class="text-base lg:text-lg" style="color: var(--text-secondary);">Cursor · AI Agent · 自动化数据流</p>
               </div>
             </div>
           </div>
@@ -143,11 +146,11 @@
           <div class="liquid-glass rounded-[1.25rem] p-12 lg:p-16" id="timeline">
             <h2 class="text-3xl lg:text-4xl font-bold mb-10 flex items-center gap-4" style="font-family: 'Instrument Serif', serif; font-style: italic;">
               <span style="color: #3B82F6;">03</span>
-              <span style="color: var(--text-primary);">大学时间线</span>
+              <span style="color: var(--text-primary);">获奖荣誉</span>
               <div class="flex-1 h-px" style="background-color: var(--border-color);"></div>
             </h2>
             <div class="space-y-10">
-              <div v-for="(item, index) in timeline" :key="index" class="flex gap-10">
+              <div v-for="(item, index) in awards" :key="index" class="flex gap-10">
                 <div class="flex-shrink-0 w-36 text-right">
                   <div class="text-lg lg:text-xl font-bold" style="color: #3B82F6;">{{ item.year }}</div>
                 </div>
@@ -290,11 +293,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const timeline = [
-  { year: '2024', title: '大一', description: '入学广东技术师范大学，参与阿里云AI应用开发实训，获得优秀学员称号' },
-  { year: '2025', title: '大二', description: '参加蓝桥杯获省级三等奖，布莱德曼程序设计大赛获校级一等奖' },
-  { year: '2026', title: '大三', description: '备考CFA一级' },
-  { year: '2027', title: '大四', description: '寻找金融科技方向实习机会' }
+const awards = [
+  { year: '2025.10', title: '第十五届挑战杯 校级一等奖', description: '大学生课外学术科技作品竞赛' },
+  { year: '2025.05', title: '蓝桥杯全国软件大赛 省级三等奖', description: 'C/C++程序设计竞赛' },
+  { year: '2025.05', title: '阿里巴巴“云工开物”AI实训 优秀学员', description: 'AI应用开发实训营' },
+  { year: '2025.03', title: '布莱德曼杯建模大赛 金奖', description: '数学建模竞赛' },
+  { year: '2025', title: '校优秀三好学生', description: '综合测评专业排名前1%' },
+  { year: '2025', title: '校运会长跑冠军', description: '校田径运动会' }
 ]
 
 const modalVisible = ref(false)
@@ -341,7 +346,8 @@ const submitContactForm = async () => {
   contactErrorMessage.value = ''
   
   try {
-    const response = await fetch('/api/messages', {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+    const response = await fetch(`${API_BASE_URL}/api/messages`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

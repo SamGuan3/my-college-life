@@ -1,11 +1,12 @@
 import express from 'express';
-import { createMessage, getMessages, getMessageById, deleteMessage } from '../controllers/messageController.ts';
+import { createMessage, getMessages, getMessageById, deleteMessage, validateMessage } from '../controllers/messageController.ts';
+import { adminAuth } from '../middleware/auth.ts';
 
 const router = express.Router();
 
-router.post('/', createMessage);
+router.post('/', validateMessage, createMessage);
 router.get('/', getMessages);
 router.get('/:id', getMessageById);
-router.delete('/:id', deleteMessage);
+router.delete('/:id', adminAuth, deleteMessage);
 
 export default router;

@@ -103,37 +103,46 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: '蜜雪冰城行业研究报告',
-    description: '撰写蜜雪冰城行业研究报告，包括行业分析、公司治理、财务分析，使用SWOT分析法分析优劣势与机遇风险',
-    image: '/蜜雪冰城IPO.png',
-    techStack: ['Python', 'Excel', 'SWOT分析'],
-    tags: ['行业研究', '金融分析'],
-    time: '2025年6月'
+    title: '全流程数据挖掘与机器学习研究',
+    description: '独立完成全流程数据挖掘工作。通过爬虫采集近10万份职业教育数据，进行文本清洗与量化转换，构建回归模型开展量化分析。',
+    image: '/阿里云AI应用开发与数据实训.jpg',
+    techStack: ['Python', '爬虫', '回归分析', 'Cursor'],
+    tags: ['数据挖掘', '核心项目'],
+    time: '2026年1月 - 4月'
   },
   {
     id: 2,
-    title: '校园快递派送微信小程序',
-    description: '针对校园内快递"时间分散、地点偏远、代取需求高频"的痛点，设计并开发校园快递派送微信小程序',
+    title: '校园快递派送小程序 (挑战杯一等奖)',
+    description: '负责数据库搭建与数据运营分析，运用MySQL、NoSQL实现业务数据结构化管理，通过Python分析用户订单行为，支撑产品迭代。',
     image: '/挑战杯即刻递.png',
-    techStack: ['微信小程序', 'Python', '路径规划'],
-    tags: ['挑战杯', '团队项目'],
-    time: '2025年'
+    techStack: ['微信小程序', 'MySQL', 'NoSQL', 'Python'],
+    tags: ['挑战杯', '一等奖'],
+    time: '2025年6月 - 10月'
   },
   {
     id: 3,
-    title: '量化策略回测系统',
-    description: '基于Backtrader框架开发量化策略回测系统，支持多种技术指标和策略优化',
-    image: '/即刻递小程序展示.png',
-    techStack: ['Python', 'Backtrader', 'TA-Lib'],
+    title: '金融数据分析与证券投资实战',
+    description: '结合CFA知识开展行业估值与投研分析。团队合作完成蜜雪冰城、立讯精密等估值分析，在国泰君安证券实盘大赛中斩获优胜奖。',
+    image: '/蜜雪冰城IPO.png',
+    techStack: ['CFA知识', '量化分析', '行业调研'],
     tags: ['量化', '金融科技'],
+    time: '2025年3月 - 12月'
+  },
+  {
+    id: 4,
+    title: '技术实践项目 (飞机大战)',
+    description: '基于Python开发的实战项目，通过Cursor AI工具辅助编程开发，实现游戏逻辑、碰撞检测与界面交互。',
+    image: '/bianchengzhixing.jpg',
+    techStack: ['Python', 'Pygame', 'Cursor'],
+    tags: ['编程实践', 'AI辅助'],
     time: '2025年'
   }
 ]
 
 const stats = {
-  total: 8,
-  completed: 5,
-  ongoing: 3,
-  technologies: 12
+  total: 5,
+  completed: 4,
+  ongoing: 1,
+  technologies: 10
 }
 </script>

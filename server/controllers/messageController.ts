@@ -1,7 +1,36 @@
 import Message from '../models/Message.ts';
+import { body, validationResult } from 'express-validator';
+
+export const validateMessage = [
+  body('name')
+    .trim()
+    .isLength({ min: 1, max: 50 })
+    .withMessage('姓名长度必须在1-50个字符之间'),
+  body('email')
+    .isEmail()
+    .withMessage('请提供有效的邮箱地址'),
+  body('subject')
+    .trim()
+    .isLength({ min: 1, max: 100 })
+    .withMessage('主题长度必须在1-100个字符之间'),
+  body('message')
+    .trim()
+    .isLength({ min: 1, max: 500 })
+    .withMessage('留言内容长度必须在1-500个字符之间')
+];
 
 export const createMessage = async (req: any, res: any): Promise<void> => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({
+        success: false,
+        message: '输入验证失败',
+        errors: errors.array()
+      });
+      return;
+    }
+
     const { name, email, subject, message } = req.body;
     
     const newMessage = new Message({ name, email, subject, message });
