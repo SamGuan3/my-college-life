@@ -6,6 +6,21 @@ export const connectDB = async (): Promise<void> => {
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error('Database connection error:', error);
-    process.exit(1);
   }
+};
+
+export const getDBStatus = () => {
+  const states: Record<number, string> = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting'
+  };
+  const readyState = mongoose.connection.readyState;
+
+  return {
+    state: states[readyState] || 'unknown',
+    host: mongoose.connection.host || null,
+    database: mongoose.connection.name || null
+  };
 };

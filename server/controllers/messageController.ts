@@ -1,41 +1,51 @@
+import type { Request, Response, NextFunction } from 'express';
 import Message from '../models/Message.ts';
-import { body, validationResult } from 'express-validator';
 
-export const validateMessage = [
-  body('name')
-    .trim()
-    .isLength({ min: 1, max: 50 })
-    .withMessage('姓名长度必须在1-50个字符之间'),
-  body('email')
-    .isEmail()
-    .withMessage('请提供有效的邮箱地址'),
-  body('subject')
-    .trim()
-    .isLength({ min: 1, max: 100 })
-    .withMessage('主题长度必须在1-100个字符之间'),
-  body('message')
-    .trim()
-    .isLength({ min: 1, max: 500 })
-    .withMessage('留言内容长度必须在1-500个字符之间')
-];
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const createMessage = async (req: any, res: any): Promise<void> => {
+const cleanText = (value: unknown) => String(value ?? '').trim();
+
+export const validateMessage = (req: Request, res: Response, next: NextFunction): void => {
+  const name = cleanText(req.body.name);
+  const email = cleanText(req.body.email).toLowerCase();
+  const subject = cleanText(req.body.subject);
+  const message = cleanText(req.body.message);
+  const website = cleanText(req.body.website);
+
+  if (website) {
+    res.status(400).json({ success: false, message: '提交失败，请稍后重试' });
+    return;
+  }
+
+  if (name.length < 1 || name.length > 50) {
+    res.status(400).json({ success: false, message: '姓名长度必须在1-50个字符之间' });
+    return;
+  }
+
+  if (!emailPattern.test(email)) {
+    res.status(400).json({ success: false, message: '请提供有效的邮箱地址' });
+    return;
+  }
+
+  if (subject.length < 1 || subject.length > 100) {
+    res.status(400).json({ success: false, message: '主题长度必须在1-100个字符之间' });
+    return;
+  }
+
+  if (message.length < 1 || message.length > 500) {
+    res.status(400).json({ success: false, message: '留言内容长度必须在1-500个字符之间' });
+    return;
+  }
+
+  req.body = { name, email, subject, message };
+  next();
+};
+
+export const createMessage = async (req: Request, res: Response): Promise<void> => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.status(400).json({
-        success: false,
-        message: '输入验证失败',
-        errors: errors.array()
-      });
-      return;
-    }
-
     const { name, email, subject, message } = req.body;
-    
-    const newMessage = new Message({ name, email, subject, message });
-    const savedMessage = await newMessage.save();
-    
+    const savedMessage = await Message.create({ name, email, subject, message });
+
     res.status(201).json({
       success: true,
       message: '留言已成功提交',
@@ -49,12 +59,12 @@ export const createMessage = async (req: any, res: any): Promise<void> => {
   }
 };
 
-export const getMessages = async (req: any, res: any): Promise<void> => {
+export const getMessages = async (req: Request, res: Response): Promise<void> => {
   try {
     const messages = await Message.find()
       .sort({ createdAt: -1 })
       .limit(50);
-    
+
     res.status(200).json({
       success: true,
       data: messages
@@ -67,11 +77,11 @@ export const getMessages = async (req: any, res: any): Promise<void> => {
   }
 };
 
-export const getMessageById = async (req: any, res: any): Promise<void> => {
+export const getMessageById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
     const message = await Message.findById(id);
-    
+
     if (!message) {
       res.status(404).json({
         success: false,
@@ -79,7 +89,7 @@ export const getMessageById = async (req: any, res: any): Promise<void> => {
       });
       return;
     }
-    
+
     res.status(200).json({
       success: true,
       data: message
@@ -92,11 +102,11 @@ export const getMessageById = async (req: any, res: any): Promise<void> => {
   }
 };
 
-export const deleteMessage = async (req: any, res: any): Promise<void> => {
+export const deleteMessage = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
     const deletedMessage = await Message.findByIdAndDelete(id);
-    
+
     if (!deletedMessage) {
       res.status(404).json({
         success: false,
@@ -104,7 +114,7 @@ export const deleteMessage = async (req: any, res: any): Promise<void> => {
       });
       return;
     }
-    
+
     res.status(200).json({
       success: true,
       message: '留言已删除',

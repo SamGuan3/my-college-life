@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev:server": "node --loader ts-node/esm server/server.ts",
+    "build": "tsc && vite build --configLoader runner",
+    "preview": "vite preview",
+    "start:server": "node --loader ts-node/esm server/server.ts",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
@@ -31,8 +34,6 @@
   "dependencies": {
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.2",
-    "express-rate-limit": "^7.5.0",
-    "express-validator": "^7.2.1",
     "react-calendar": "^6.0.0",
     "react-grid-layout": "^1.5.2",
     "vue": "^3.5.34",

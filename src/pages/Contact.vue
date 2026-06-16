@@ -51,9 +51,13 @@
             </div>
 
             <div class="border-t pt-8 mt-8" style="border-color: var(--border-color);">
-              <button class="w-full liquid-glass-button py-5 text-lg lg:text-xl" style="color: var(--text-primary);">
+              <a
+                href="mailto:3462343313@qq.com?subject=来自个人网站的联系"
+                class="block w-full liquid-glass-button py-5 text-lg lg:text-xl text-center"
+                style="color: var(--text-primary);"
+              >
                 发送邮件
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -69,6 +73,7 @@
                   type="text"
                   placeholder="请输入您的姓名"
                   class="liquid-glass-input w-full py-5 px-7 text-lg"
+                  maxlength="50"
                   required
                 />
               </div>
@@ -91,6 +96,7 @@
                   type="text"
                   placeholder="留言主题"
                   class="liquid-glass-input w-full py-5 px-7 text-lg"
+                  maxlength="100"
                   required
                 />
               </div>
@@ -102,9 +108,12 @@
                   rows="8"
                   placeholder="请输入您的留言内容..."
                   class="liquid-glass-input w-full py-5 px-7 text-lg resize-none"
+                  maxlength="500"
                   required
                 ></textarea>
               </div>
+
+              <input v-model="form.website" type="text" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
               <button
                 type="submit"
@@ -130,6 +139,13 @@
             
             <div v-if="messagesLoading" class="flex justify-center items-center py-12">
               <div class="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+            </div>
+
+            <div v-else-if="messagesError" class="text-center py-12">
+              <p class="text-xl lg:text-2xl mb-6" style="color: var(--text-secondary);">{{ messagesError }}</p>
+              <button class="liquid-glass-button px-8 py-3" style="color: var(--text-primary);" @click="fetchMessages">
+                重新加载
+              </button>
             </div>
 
             <div v-else-if="messages.length === 0" class="text-center py-12">
@@ -167,6 +183,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { requestJson } from '../utils/api'
 
 interface Message {
   _id: string
@@ -177,11 +194,18 @@ interface Message {
   createdAt: string
 }
 
+interface ApiResponse<T> {
+  success: boolean
+  message?: string
+  data: T
+}
+
 const form = ref({
   name: '',
   email: '',
   subject: '',
-  message: ''
+  message: '',
+  website: ''
 })
 
 const messages = ref<Message[]>([])
@@ -189,36 +213,33 @@ const isLoading = ref(false)
 const messagesLoading = ref(false)
 const submitted = ref(false)
 const errorMessage = ref('')
-
-const API_URL = '/api/messages'
+const messagesError = ref('')
 
 const submitForm = async () => {
   isLoading.value = true
   errorMessage.value = ''
   
   try {
-    const response = await fetch(API_URL, {
+    const result = await requestJson<ApiResponse<Message>>('/api/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(form.value)
     })
-    
-    const result = await response.json()
-    
+
     if (result.success) {
       submitted.value = true
-      form.value = { name: '', email: '', subject: '', message: '' }
+      form.value = { name: '', email: '', subject: '', message: '', website: '' }
       await fetchMessages()
       setTimeout(() => {
         submitted.value = false
       }, 3000)
     } else {
-      errorMessage.value = result.message || '提交失败'
+      errorMessage.value = result.message || '提交失败，请检查内容后重试'
     }
   } catch (error) {
-    errorMessage.value = '网络错误，请稍后重试'
+    errorMessage.value = error instanceof Error ? error.message : '网络错误，请稍后重试'
   } finally {
     isLoading.value = false
   }
@@ -226,16 +247,18 @@ const submitForm = async () => {
 
 const fetchMessages = async () => {
   messagesLoading.value = true
+  messagesError.value = ''
   
   try {
-    const response = await fetch(API_URL)
-    const result = await response.json()
+    const result = await requestJson<ApiResponse<Message[]>>('/api/messages')
     
     if (result.success) {
       messages.value = result.data
+    } else {
+      messagesError.value = result.message || '留言加载失败，请稍后重试'
     }
   } catch (error) {
-    console.error('获取留言列表失败:', error)
+    messagesError.value = error instanceof Error ? error.message : '留言加载失败，请稍后重试'
   } finally {
     messagesLoading.value = false
   }

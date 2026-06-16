@@ -222,6 +222,7 @@
               placeholder="您的姓名"
               class="w-full py-4 px-6 text-base rounded-lg"
               style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
+              maxlength="50"
               required
             />
             <input
@@ -238,6 +239,7 @@
               placeholder="留言主题"
               class="w-full py-4 px-6 text-base rounded-lg"
               style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
+              maxlength="100"
               required
             />
             <textarea
@@ -246,8 +248,10 @@
               placeholder="留言内容..."
               class="w-full py-4 px-6 text-base rounded-lg resize-none"
               style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary);"
+              maxlength="500"
               required
             ></textarea>
+            <input v-model="contactForm.website" type="text" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button
               type="submit"
               :disabled="isContactLoading"
@@ -292,6 +296,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { requestJson } from '../utils/api'
+
+interface ApiResponse<T> {
+  success: boolean
+  message?: string
+  data: T
+}
 
 const awards = [
   { year: '2025.10', title: '第十五届挑战杯 校级一等奖', description: '大学生课外学术科技作品竞赛' },
@@ -310,7 +321,8 @@ const contactForm = ref({
   name: '',
   email: '',
   subject: '',
-  message: ''
+  message: '',
+  website: ''
 })
 
 const contactSubmitted = ref(false)
@@ -346,28 +358,25 @@ const submitContactForm = async () => {
   contactErrorMessage.value = ''
   
   try {
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
-    const response = await fetch(`${API_BASE_URL}/api/messages`, {
+    const result = await requestJson<ApiResponse<unknown>>('/api/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(contactForm.value)
     })
-    
-    const result = await response.json()
-    
+
     if (result.success) {
       contactSubmitted.value = true
-      contactForm.value = { name: '', email: '', subject: '', message: '' }
+      contactForm.value = { name: '', email: '', subject: '', message: '', website: '' }
       setTimeout(() => {
         contactSubmitted.value = false
       }, 3000)
     } else {
-      contactErrorMessage.value = result.message || '提交失败'
+      contactErrorMessage.value = result.message || '提交失败，请检查内容后重试'
     }
   } catch (error) {
-    contactErrorMessage.value = '网络错误，请稍后重试'
+    contactErrorMessage.value = error instanceof Error ? error.message : '网络错误，请稍后重试'
   } finally {
     isContactLoading.value = false
   }

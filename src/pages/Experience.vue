@@ -105,6 +105,7 @@
                   <img
                     :src="project.image"
                     :alt="project.title"
+                    loading="lazy"
                     class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                   <div class="absolute top-4 right-4 flex gap-2 flex-wrap">
@@ -139,9 +140,9 @@
 
                   <div class="flex items-center justify-between pt-7 border-t" style="border-color: var(--border-color);">
                     <span class="text-base lg:text-lg" style="color: var(--text-muted);">{{ project.time }}</span>
-                    <a href="#" class="text-base lg:text-lg font-medium text-blue-500 hover:text-blue-400">
+                    <router-link to="/projects" class="text-base lg:text-lg font-medium text-blue-500 hover:text-blue-400">
                       查看详情 →
-                    </a>
+                    </router-link>
                   </div>
                 </div>
               </div>
@@ -153,15 +154,15 @@
           <div class="liquid-glass rounded-[1.25rem] p-10 lg:p-12 sticky top-28">
             <h3 class="text-xl lg:text-2xl font-bold mb-8" style="font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text-primary);">快速链接</h3>
             <div class="space-y-5">
-              <a href="/简历.docx" download="简历.docx" class="block px-6 py-5 rounded-full transition-all text-lg lg:text-xl" style="color: var(--text-secondary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.05)'" @mouseleave="($event.currentTarget as HTMLElement).style.backgroundColor = 'transparent'">
+              <a href="/简历.docx" download="关山-简历.docx" class="block px-6 py-5 rounded-full transition-all text-lg lg:text-xl" style="color: var(--text-secondary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.05)'" @mouseleave="($event.currentTarget as HTMLElement).style.backgroundColor = 'transparent'">
                 📄 下载简历
               </a>
               <button @click="showWechatModal = true" class="w-full text-left block px-6 py-5 rounded-full transition-all text-lg lg:text-xl" style="color: var(--text-secondary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.05)'" @mouseleave="($event.currentTarget as HTMLElement).style.backgroundColor = 'transparent'">
                 💬 添加微信
               </button>
-              <a href="#" class="block px-6 py-5 rounded-full transition-all text-lg lg:text-xl" style="color: var(--text-secondary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.05)'" @mouseleave="($event.currentTarget as HTMLElement).style.backgroundColor = 'transparent'">
+              <router-link to="/contact" class="block px-6 py-5 rounded-full transition-all text-lg lg:text-xl" style="color: var(--text-secondary);" @mouseenter="($event.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.05)'" @mouseleave="($event.currentTarget as HTMLElement).style.backgroundColor = 'transparent'">
                 📧 联系我
-              </a>
+              </router-link>
             </div>
           </div>
         </div>

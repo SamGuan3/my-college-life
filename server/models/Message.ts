@@ -13,7 +13,7 @@ const MessageSchema: Schema = new Schema({
     type: String,
     required: [true, '请输入您的姓名'],
     trim: true,
-    maxlength: [100, '姓名不能超过100个字符']
+    maxlength: [50, '姓名不能超过50个字符']
   },
   email: {
     type: String,
@@ -25,13 +25,13 @@ const MessageSchema: Schema = new Schema({
     type: String,
     required: [true, '请输入留言主题'],
     trim: true,
-    maxlength: [200, '主题不能超过200个字符']
+    maxlength: [100, '主题不能超过100个字符']
   },
   message: {
     type: String,
     required: [true, '请输入留言内容'],
     trim: true,
-    maxlength: [2000, '留言内容不能超过2000个字符']
+    maxlength: [500, '留言内容不能超过500个字符']
   },
   createdAt: {
     type: Date,

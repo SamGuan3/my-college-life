@@ -6,7 +6,7 @@ export const adminAuth = (req: Request, res: Response, next: NextFunction) => {
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     res.status(401).json({
       success: false,
-      message: '未提供认证令牌'
+      message: '未提供管理员认证令牌'
     });
     return;
   }
@@ -17,7 +17,7 @@ export const adminAuth = (req: Request, res: Response, next: NextFunction) => {
   if (!adminSecret || token !== adminSecret) {
     res.status(403).json({
       success: false,
-      message: '无效的认证令牌'
+      message: '无效的管理员认证令牌'
     });
     return;
   }
